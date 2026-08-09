@@ -47,8 +47,14 @@ input:focus,select:focus{outline:2px solid #dbeafe;border-color:#2563eb}
   gap:8px;
   grid-column:span 2;
 }
+
 .total-box label{margin:0;flex-shrink:0}
-.total-box input{height:28px;font-weight:bold;color:#16a34a;text-align:center}
+.total-box input{
+  height:28px;
+  font-weight:bold;
+  color:#16a34a;
+  text-align:center
+}
 
 .total-note{
   grid-column:1/-1;
@@ -63,26 +69,116 @@ input:focus,select:focus{outline:2px solid #dbeafe;border-color:#2563eb}
   text-align:center;
 }
 
-button{width:100%;height:38px;margin-top:10px;border:0;border-radius:9px;background:#16a34a;color:#fff;font-size:14px;font-weight:800;cursor:pointer;flex-shrink:0}
+button{
+  width:100%;
+  height:38px;
+  margin-top:10px;
+  border:0;
+  border-radius:9px;
+  background:#16a34a;
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+  flex-shrink:0
+}
+
 button:active{transform:scale(.99)}
-.note{text-align:center;color:#777;font-size:10px;margin:4px 0 0;flex-shrink:0}
-.error{display:none;background:#fff1f2;color:#9f1239;border:1px solid #fecdd3;padding:6px;border-radius:7px;margin-top:6px;font-size:11px;font-weight:700;text-align:center}
+
+.note{
+  text-align:center;
+  color:#777;
+  font-size:10px;
+  margin:4px 0 0;
+  flex-shrink:0
+}
+
+.error{
+  display:none;
+  background:#fff1f2;
+  color:#9f1239;
+  border:1px solid #fecdd3;
+  padding:6px;
+  border-radius:7px;
+  margin-top:6px;
+  font-size:11px;
+  font-weight:700;
+  text-align:center
+}
 
 @media(max-width:768px){
-  .wrap{padding:4px;height:auto;min-height:100vh;justify-content:flex-start}
-  .card{padding:10px;max-height:none}
-  .grid{grid-template-columns:1fr 1fr;gap:3px 6px}
-  .span-2{grid-column:span 1}
-  .total-box{grid-column:span 2;flex-direction:column;align-items:stretch;gap:2px}
-  .total-note{grid-column:1/-1}
-  label{font-size:10.5px;white-space:normal}
-  input,select{height:30px;font-size:11.5px;padding:0 6px}
-  button{height:36px;font-size:13px;margin-top:8px}
-  h2{font-size:12px;margin:4px 0 2px}
-  .title{font-size:16px}
-  .phone{font-size:13px}
-  .info-note{font-size:10px;padding:5px 6px}
-  .total-note{font-size:9.5px;padding:5px 6px}
+
+  .wrap{
+    padding:4px;
+    height:auto;
+    min-height:100vh;
+    justify-content:flex-start
+  }
+
+  .card{
+    padding:10px;
+    max-height:none
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr;
+    gap:3px 6px
+  }
+
+  .span-2{
+    grid-column:span 1
+  }
+
+  .total-box{
+    grid-column:span 2;
+    flex-direction:column;
+    align-items:stretch;
+    gap:2px
+  }
+
+  .total-note{
+    grid-column:1/-1
+  }
+
+  label{
+    font-size:10.5px;
+    white-space:normal
+  }
+
+  input,select{
+    height:30px;
+    font-size:11.5px;
+    padding:0 6px
+  }
+
+  button{
+    height:36px;
+    font-size:13px;
+    margin-top:8px
+  }
+
+  h2{
+    font-size:12px;
+    margin:4px 0 2px
+  }
+
+  .title{
+    font-size:16px
+  }
+
+  .phone{
+    font-size:13px
+  }
+
+  .info-note{
+    font-size:10px;
+    padding:5px 6px
+  }
+
+  .total-note{
+    font-size:9.5px;
+    padding:5px 6px
+  }
 }
 </style>
 </head>
@@ -93,12 +189,15 @@ button:active{transform:scale(.99)}
 <div class="card">
 
 <header class="header">
+
 <h1 class="title">مكتب عقود إيجار</h1>
+
 <a class="phone" href="tel:0536305035">0536305035</a>
+
 <p class="intro">بيانات العقار المطلوبة لإعداد العقد</p>
 
 <div class="info-note">
-حسب صلاحيات منصة إيجار، إذا كان طلبك غير موجود في المنصة فهذا يعني أن الطلب غير متوفر فيها ولا يمكننا إظهاره أو التعامل معه من خلال المنصة.
+البيانات الموجودة في هذا النموذج مطابقة للبيانات المتاحة في منصة إيجار، ولا يمكننا إضافة أي خانة أو بند إضافي أو أي تفاصيل غير موجودة ضمن بيانات المنصة.
 </div>
 
 </header>
@@ -116,6 +215,7 @@ button:active{transform:scale(.99)}
 
 <div class="field">
 <label>2. نوع العقار <span class="req">*</span></label>
+
 <select name="propertyType" required>
 <option value="">اختر</option>
 <option>عمارة</option>
@@ -130,6 +230,7 @@ button:active{transform:scale(.99)}
 
 <div class="field">
 <label>3. استخدام العقار <span class="req">*</span></label>
+
 <select name="usage" required>
 <option value="">اختر</option>
 <option>سكني عائلات</option>
@@ -150,8 +251,16 @@ button:active{transform:scale(.99)}
 </div>
 
 <div class="field total-box">
+
 <label>إجمالي الوحدات:</label>
-<input id="totalUnits" type="text" value="0 وحدة" readonly>
+
+<input
+id="totalUnits"
+type="text"
+value="0 وحدة"
+readonly
+>
+
 </div>
 
 <div class="total-note">
@@ -181,7 +290,9 @@ button:active{transform:scale(.99)}
 
 <div class="field">
 <label>9. نوع الوحدة <span class="req">*</span></label>
+
 <select name="unitType" required>
+
 <option value="">اختر</option>
 <option>شقة</option>
 <option>فيلا</option>
@@ -205,6 +316,7 @@ button:active{transform:scale(.99)}
 <option>غرفة سائق</option>
 <option>استراحة</option>
 <option>شقة دورين</option>
+
 </select>
 </div>
 
@@ -220,20 +332,24 @@ button:active{transform:scale(.99)}
 
 <div class="field">
 <label>12. مؤثثة؟</label>
+
 <select name="furnished">
 <option value="">اختر</option>
 <option>نعم</option>
 <option>لا</option>
 </select>
+
 </div>
 
 <div class="field">
 <label>13. دواليب مطبخ؟</label>
+
 <select name="kitchenCabinets">
 <option value="">اختر</option>
 <option>نعم</option>
 <option>لا</option>
 </select>
+
 </div>
 
 <div class="field">
@@ -288,7 +404,9 @@ button:active{transform:scale(.99)}
 
 </div>
 
-<button type="submit">إرسال البيانات عبر واتساب</button>
+<button type="submit">
+إرسال البيانات عبر واتساب
+</button>
 
 <p class="note">
 بعد الضغط سيتم فتح واتساب والرسالة جاهزة للإرسال.
@@ -303,38 +421,51 @@ button:active{transform:scale(.99)}
 </div>
 
 <script>
+
 const receiver="966536305035";
 
 const form=document.getElementById("form");
+
 const floors=document.querySelector('[name="floors"]');
+
 const unitsPerFloor=document.querySelector('[name="unitsPerFloor"]');
+
 const totalUnits=document.getElementById("totalUnits");
+
 const errorBox=document.getElementById("error");
 
+
 function updateTotal(){
+
   const a=parseInt(floors.value,10);
+
   const b=parseInt(unitsPerFloor.value,10);
 
   const total=
     (Number.isFinite(a)&&a>=0&&Number.isFinite(b)&&b>=0)
-    ? a*b
-    : 0;
+    ?a*b
+    :0;
 
   totalUnits.value=total+" وحدة";
 }
 
+
 floors.addEventListener("input",updateTotal);
+
 unitsPerFloor.addEventListener("input",updateTotal);
 
 updateTotal();
 
+
 function validateRequired(){
 
-  const fields=[...form.querySelectorAll("[required]")];
+  const fields=[
+    ...form.querySelectorAll("[required]")
+  ];
 
-  const missing=fields.filter(el=>{
-    return !String(el.value||"").trim();
-  });
+  const missing=fields.filter(el=>
+    !String(el.value||"").trim()
+  );
 
   if(missing.length){
 
@@ -358,6 +489,7 @@ function validateRequired(){
   return true;
 }
 
+
 form.addEventListener("submit",function(e){
 
   e.preventDefault();
@@ -372,6 +504,7 @@ form.addEventListener("submit",function(e){
   const total=
     (parseInt(floors.value,10)||0) *
     (parseInt(unitsPerFloor.value,10)||0);
+
 
   const msg=`*بيانات العقار - مكتب عقود إيجار*
 
@@ -403,9 +536,13 @@ form.addEventListener("submit",function(e){
 22. رقم عداد الكهرباء: ${v("electricity")}
 23. رقم عداد الماء: ${v("water")}`;
 
+
   const url=
-    "https://wa.me/"+receiver+
-    "?text="+encodeURIComponent(msg);
+    "https://wa.me/"+
+    receiver+
+    "?text="+
+    encodeURIComponent(msg);
+
 
   const w=window.open(url,"_blank");
 
@@ -414,6 +551,7 @@ form.addEventListener("submit",function(e){
   }
 
 });
+
 </script>
 
 </body>
