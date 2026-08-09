@@ -18,9 +18,9 @@ h2{font-size:17px;margin:22px 0 12px;padding-bottom:9px;border-bottom:1px solid 
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
 .field{margin-bottom:2px}.full{grid-column:1/-1}
 label{display:block;font-size:14px;font-weight:700;margin:10px 0 6px}
+.req{color:#dc2626;font-weight:bold}
 input,select{width:100%;height:46px;padding:0 12px;border:1px solid #d7dce2;border-radius:11px;background:#fff;color:#222;font-size:15px}
 input:focus,select:focus{outline:2px solid #dbeafe;border-color:#2563eb}
-input:invalid,select:invalid{border-color:#d7dce2}
 .total-box{margin-top:8px;padding:12px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc}
 .total-note{font-size:12px;color:#6b7280;margin-top:5px;line-height:1.5}
 button{width:100%;height:50px;margin-top:24px;border:0;border-radius:12px;background:#16a34a;color:#fff;font-size:17px;font-weight:800;cursor:pointer}
@@ -92,13 +92,13 @@ button:active{transform:scale(.99)}
 </div>
 
 <div class="field">
-<label>6. عدد المصاعد في العقار <span class="req">*</span></label>
-<input name="elevators" type="number" min="0" inputmode="numeric" required>
+<label>6. عدد المصاعد في العقار</label>
+<input name="elevators" type="number" min="0" inputmode="numeric">
 </div>
 
 <div class="field">
-<label>7. عدد المواقف في العقار <span class="req">*</span></label>
-<input name="parking" type="number" min="0" inputmode="numeric" required>
+<label>7. عدد المواقف في العقار</label>
+<input name="parking" type="number" min="0" inputmode="numeric">
 </div>
 
 </div>
@@ -125,37 +125,37 @@ button:active{transform:scale(.99)}
 </div>
 
 <div class="field">
-<label>11. مساحة الوحدة <span class="req">*</span></label>
-<input name="area" inputmode="decimal" required>
+<label>11. مساحة الوحدة</label>
+<input name="area" inputmode="decimal">
 </div>
 
 <div class="field">
-<label>12. هل الوحدة مؤثثة؟ <span class="req">*</span></label>
-<select name="furnished" required><option value="">اختر</option><option>نعم</option><option>لا</option></select>
+<label>12. هل الوحدة مؤثثة؟</label>
+<select name="furnished"><option value="">اختر</option><option>نعم</option><option>لا</option></select>
 </div>
 
 <div class="field">
-<label>13. هل يوجد دواليب مطبخ؟ <span class="req">*</span></label>
-<select name="kitchenCabinets" required><option value="">اختر</option><option>نعم</option><option>لا</option></select>
+<label>13. هل يوجد دواليب مطبخ؟</label>
+<select name="kitchenCabinets"><option value="">اختر</option><option>نعم</option><option>لا</option></select>
 </div>
 
-<div class="field"><label>14. عدد غرف النوم <span class="req">*</span></label><input name="bedrooms" type="number" min="0" required></div>
-<div class="field"><label>15. عدد الصالات <span class="req">*</span></label><input name="livingRooms" type="number" min="0" required></div>
-<div class="field"><label>16. عدد الحمامات <span class="req">*</span></label><input name="bathrooms" type="number" min="0" required></div>
-<div class="field"><label>17. عدد المطابخ <span class="req">*</span></label><input name="kitchens" type="number" min="0" required></div>
-<div class="field"><label>18. عدد المجالس <span class="req">*</span></label><input name="majlis" type="number" min="0" required></div>
-<div class="field"><label>19. عدد المخازن <span class="req">*</span></label><input name="storage" type="number" min="0" required></div>
-<div class="field"><label>20. عدد مكيفات السبليت <span class="req">*</span></label><input name="splitAC" type="number" min="0" required></div>
-<div class="field"><label>21. عدد مكيفات الشباك <span class="req">*</span></label><input name="windowAC" type="number" min="0" required></div>
+<div class="field"><label>14. عدد غرف النوم</label><input name="bedrooms" type="number" min="0"></div>
+<div class="field"><label>15. عدد الصالات</label><input name="livingRooms" type="number" min="0"></div>
+<div class="field"><label>16. عدد الحمامات</label><input name="bathrooms" type="number" min="0"></div>
+<div class="field"><label>17. عدد المطابخ</label><input name="kitchens" type="number" min="0"></div>
+<div class="field"><label>18. عدد المجالس</label><input name="majlis" type="number" min="0"></div>
+<div class="field"><label>19. عدد المخازن</label><input name="storage" type="number" min="0"></div>
+<div class="field"><label>20. عدد مكيفات السبليت</label><input name="splitAC" type="number" min="0"></div>
+<div class="field"><label>21. عدد مكيفات الشباك</label><input name="windowAC" type="number" min="0"></div>
 
 <div class="field">
-<label>22. رقم عداد الكهرباء إن وجد أو اكتب طلبك <span class="req">*</span></label>
-<input name="electricity" placeholder="رقم العداد أو اكتب طلبك" required>
+<label>22. رقم عداد الكهرباء إن وجد أو اكتب طلبك</label>
+<input name="electricity" placeholder="رقم العداد أو اكتب طلبك">
 </div>
 
 <div class="field">
-<label>23. رقم عداد الماء إن وجد أو اكتب طلبك <span class="req">*</span></label>
-<input name="water" placeholder="رقم العداد أو اكتب طلبك" required>
+<label>23. رقم عداد الماء إن وجد أو اكتب طلبك</label>
+<input name="water" placeholder="رقم العداد أو اكتب طلبك">
 </div>
 
 </div>
