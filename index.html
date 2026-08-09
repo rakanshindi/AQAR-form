@@ -14,6 +14,19 @@ html, body{height:100%;margin:0;padding:0;background:#f4f6f8;color:#17202a;font-
 .title{font-size:18px;font-weight:800;margin:0}
 .phone{display:inline-block;margin-top:2px;color:#0b57d0;text-decoration:none;font-size:14px;font-weight:700;direction:ltr}
 .intro{margin:1px 0 0;color:#6b7280;font-size:11px}
+
+.info-note{
+  margin:5px 0 2px;
+  padding:6px 8px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:7px;
+  color:#475569;
+  font-size:10.5px;
+  line-height:1.5;
+  text-align:center;
+}
+
 h2{font-size:13px;margin:6px 0 4px;padding-bottom:3px;border-bottom:1px solid #e9ecef;color:#2563eb;font-weight:800}
 .grid{display:grid;grid-template-columns:repeat(4, 1fr);gap:4px 8px;align-items:start}
 .field{margin-bottom:0}
@@ -23,29 +36,59 @@ label{display:block;font-size:11px;font-weight:700;margin:2px 0 2px;white-space:
 .req{color:#dc2626;font-weight:bold}
 input,select{width:100%;height:32px;padding:0 8px;border:1px solid #d7dce2;border-radius:7px;background:#fff;color:#222;font-size:12px}
 input:focus,select:focus{outline:2px solid #dbeafe;border-color:#2563eb}
-.total-box{padding:6px 8px;border:1px solid #e2e8f0;border-radius:8px;background:#f8fafc;display:flex;align-items:center;gap:8px;grid-column:span 2}
+
+.total-box{
+  padding:6px 8px;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  background:#f8fafc;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  grid-column:span 2;
+}
 .total-box label{margin:0;flex-shrink:0}
 .total-box input{height:28px;font-weight:bold;color:#16a34a;text-align:center}
+
+.total-note{
+  grid-column:1/-1;
+  margin-top:-1px;
+  padding:5px 8px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:7px;
+  color:#64748b;
+  font-size:10px;
+  line-height:1.5;
+  text-align:center;
+}
+
 button{width:100%;height:38px;margin-top:10px;border:0;border-radius:9px;background:#16a34a;color:#fff;font-size:14px;font-weight:800;cursor:pointer;flex-shrink:0}
 button:active{transform:scale(.99)}
 .note{text-align:center;color:#777;font-size:10px;margin:4px 0 0;flex-shrink:0}
 .error{display:none;background:#fff1f2;color:#9f1239;border:1px solid #fecdd3;padding:6px;border-radius:7px;margin-top:6px;font-size:11px;font-weight:700;text-align:center}
+
 @media(max-width:768px){
   .wrap{padding:4px;height:auto;min-height:100vh;justify-content:flex-start}
   .card{padding:10px;max-height:none}
   .grid{grid-template-columns:1fr 1fr;gap:3px 6px}
   .span-2{grid-column:span 1}
   .total-box{grid-column:span 2;flex-direction:column;align-items:stretch;gap:2px}
+  .total-note{grid-column:1/-1}
   label{font-size:10.5px;white-space:normal}
   input,select{height:30px;font-size:11.5px;padding:0 6px}
   button{height:36px;font-size:13px;margin-top:8px}
   h2{font-size:12px;margin:4px 0 2px}
   .title{font-size:16px}
   .phone{font-size:13px}
+  .info-note{font-size:10px;padding:5px 6px}
+  .total-note{font-size:9.5px;padding:5px 6px}
 }
 </style>
 </head>
+
 <body>
+
 <div class="wrap">
 <div class="card">
 
@@ -53,11 +96,17 @@ button:active{transform:scale(.99)}
 <h1 class="title">مكتب عقود إيجار</h1>
 <a class="phone" href="tel:0536305035">0536305035</a>
 <p class="intro">بيانات العقار المطلوبة لإعداد العقد</p>
+
+<div class="info-note">
+حسب صلاحيات منصة إيجار، إذا كان طلبك غير موجود في المنصة فهذا يعني أن الطلب غير متوفر فيها ولا يمكننا إظهاره أو التعامل معه من خلال المنصة.
+</div>
+
 </header>
 
 <form id="form" novalidate>
 
 <h2>بيانات العقار</h2>
+
 <div class="grid">
 
 <div class="field span-2">
@@ -105,6 +154,10 @@ button:active{transform:scale(.99)}
 <input id="totalUnits" type="text" value="0 وحدة" readonly>
 </div>
 
+<div class="total-note">
+هذا الإجمالي سيظهر في صورة العقد حسب نظام منصة إيجار، ولا نستطيع تعديل طريقة عرض أو احتساب الإجمالي من داخل المنصة.
+</div>
+
 <div class="field">
 <label>6. المصاعد</label>
 <input name="elevators" type="number" min="0" inputmode="numeric">
@@ -118,6 +171,7 @@ button:active{transform:scale(.99)}
 </div>
 
 <h2>بيانات الوحدة</h2>
+
 <div class="grid">
 
 <div class="field">
@@ -129,7 +183,28 @@ button:active{transform:scale(.99)}
 <label>9. نوع الوحدة <span class="req">*</span></label>
 <select name="unitType" required>
 <option value="">اختر</option>
-<option>شقة</option><option>فيلا</option><option>محل</option><option>كشك</option><option>ورشة</option><option>أرض</option><option>محطة</option><option>مكتب</option><option>مستودع</option><option>معرض</option><option>صراف</option><option>فندق</option><option>بلازا</option><option>مول</option><option>دور</option><option>عمارة</option><option>برج</option><option>استوديو</option><option>ملحق</option><option>غرفة سائق</option><option>استراحة</option><option>شقة دورين</option>
+<option>شقة</option>
+<option>فيلا</option>
+<option>محل</option>
+<option>كشك</option>
+<option>ورشة</option>
+<option>أرض</option>
+<option>محطة</option>
+<option>مكتب</option>
+<option>مستودع</option>
+<option>معرض</option>
+<option>صراف</option>
+<option>فندق</option>
+<option>بلازا</option>
+<option>مول</option>
+<option>دور</option>
+<option>عمارة</option>
+<option>برج</option>
+<option>استوديو</option>
+<option>ملحق</option>
+<option>غرفة سائق</option>
+<option>استراحة</option>
+<option>شقة دورين</option>
 </select>
 </div>
 
@@ -145,22 +220,61 @@ button:active{transform:scale(.99)}
 
 <div class="field">
 <label>12. مؤثثة؟</label>
-<select name="furnished"><option value="">اختر</option><option>نعم</option><option>لا</option></select>
+<select name="furnished">
+<option value="">اختر</option>
+<option>نعم</option>
+<option>لا</option>
+</select>
 </div>
 
 <div class="field">
 <label>13. دواليب مطبخ؟</label>
-<select name="kitchenCabinets"><option value="">اختر</option><option>نعم</option><option>لا</option></select>
+<select name="kitchenCabinets">
+<option value="">اختر</option>
+<option>نعم</option>
+<option>لا</option>
+</select>
 </div>
 
-<div class="field"><label>14. غرف النوم</label><input name="bedrooms" type="number" min="0"></div>
-<div class="field"><label>15. الصالات</label><input name="livingRooms" type="number" min="0"></div>
-<div class="field"><label>16. الحمامات</label><input name="bathrooms" type="number" min="0"></div>
-<div class="field"><label>17. المطابخ</label><input name="kitchens" type="number" min="0"></div>
-<div class="field"><label>18. المجالس</label><input name="majlis" type="number" min="0"></div>
-<div class="field"><label>19. المخازن</label><input name="storage" type="number" min="0"></div>
-<div class="field"><label>20. مكيف سبليت</label><input name="splitAC" type="number" min="0"></div>
-<div class="field"><label>21. مكيف شباك</label><input name="windowAC" type="number" min="0"></div>
+<div class="field">
+<label>14. غرف النوم</label>
+<input name="bedrooms" type="number" min="0">
+</div>
+
+<div class="field">
+<label>15. الصالات</label>
+<input name="livingRooms" type="number" min="0">
+</div>
+
+<div class="field">
+<label>16. الحمامات</label>
+<input name="bathrooms" type="number" min="0">
+</div>
+
+<div class="field">
+<label>17. المطابخ</label>
+<input name="kitchens" type="number" min="0">
+</div>
+
+<div class="field">
+<label>18. المجالس</label>
+<input name="majlis" type="number" min="0">
+</div>
+
+<div class="field">
+<label>19. المخازن</label>
+<input name="storage" type="number" min="0">
+</div>
+
+<div class="field">
+<label>20. مكيف سبليت</label>
+<input name="splitAC" type="number" min="0">
+</div>
+
+<div class="field">
+<label>21. مكيف شباك</label>
+<input name="windowAC" type="number" min="0">
+</div>
 
 <div class="field span-2">
 <label>22. عداد الكهرباء</label>
@@ -175,8 +289,14 @@ button:active{transform:scale(.99)}
 </div>
 
 <button type="submit">إرسال البيانات عبر واتساب</button>
-<p class="note">بعد الضغط سيتم فتح واتساب والرسالة جاهزة للإرسال.</p>
-<div id="error" class="error">⚠️ يجب إكمال البيانات المطلوبة (1، 2، 3، 4، 5، 8، 9، 10)</div>
+
+<p class="note">
+بعد الضغط سيتم فتح واتساب والرسالة جاهزة للإرسال.
+</p>
+
+<div id="error" class="error">
+⚠️ يجب إكمال البيانات المطلوبة لتتمكن من الإرسال
+</div>
 
 </form>
 </div>
@@ -184,6 +304,7 @@ button:active{transform:scale(.99)}
 
 <script>
 const receiver="966536305035";
+
 const form=document.getElementById("form");
 const floors=document.querySelector('[name="floors"]');
 const unitsPerFloor=document.querySelector('[name="unitsPerFloor"]');
@@ -193,34 +314,64 @@ const errorBox=document.getElementById("error");
 function updateTotal(){
   const a=parseInt(floors.value,10);
   const b=parseInt(unitsPerFloor.value,10);
-  const total=(Number.isFinite(a)&&a>=0&&Number.isFinite(b)&&b>=0)?a*b:0;
+
+  const total=
+    (Number.isFinite(a)&&a>=0&&Number.isFinite(b)&&b>=0)
+    ? a*b
+    : 0;
+
   totalUnits.value=total+" وحدة";
 }
+
 floors.addEventListener("input",updateTotal);
 unitsPerFloor.addEventListener("input",updateTotal);
+
 updateTotal();
 
 function validateRequired(){
+
   const fields=[...form.querySelectorAll("[required]")];
-  const missing=fields.filter(el=>!String(el.value||"").trim());
+
+  const missing=fields.filter(el=>{
+    return !String(el.value||"").trim();
+  });
+
   if(missing.length){
-    errorBox.textContent="⚠️ يجب إكمال البيانات المطلوبة لتتمكن من الإرسال";
+
+    errorBox.textContent=
+      "⚠️ يجب إكمال البيانات المطلوبة لتتمكن من الإرسال";
+
     errorBox.style.display="block";
-    missing[0].scrollIntoView({behavior:"smooth",block:"center"});
+
+    missing[0].scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
     missing[0].focus();
+
     return false;
   }
+
   errorBox.style.display="none";
+
   return true;
 }
 
 form.addEventListener("submit",function(e){
+
   e.preventDefault();
+
   if(!validateRequired()) return;
 
   const d=new FormData(form);
-  const v=k=>(d.get(k)||"").trim()||"غير متوفر";
-  const total=(parseInt(floors.value,10)||0)*(parseInt(unitsPerFloor.value,10)||0);
+
+  const v=k=>
+    (d.get(k)||"").trim()||"غير متوفر";
+
+  const total=
+    (parseInt(floors.value,10)||0) *
+    (parseInt(unitsPerFloor.value,10)||0);
 
   const msg=`*بيانات العقار - مكتب عقود إيجار*
 
@@ -252,11 +403,18 @@ form.addEventListener("submit",function(e){
 22. رقم عداد الكهرباء: ${v("electricity")}
 23. رقم عداد الماء: ${v("water")}`;
 
-  const url="https://wa.me/"+receiver+"?text="+encodeURIComponent(msg);
+  const url=
+    "https://wa.me/"+receiver+
+    "?text="+encodeURIComponent(msg);
+
   const w=window.open(url,"_blank");
-  if(!w) window.location.href=url;
+
+  if(!w){
+    window.location.href=url;
+  }
+
 });
 </script>
+
 </body>
 </html>
-
