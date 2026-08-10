@@ -4,10 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f172a">
+
 <title>مكتب عقود إيجار | بيانات العقار</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box
+}
 
 html,body{
   height:100%;
@@ -23,7 +27,7 @@ html,body{
   max-width:900px;
   margin:0 auto;
   padding:8px;
-  height:100vh;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   justify-content:center
@@ -69,13 +73,13 @@ html,body{
 
 .info-note{
   margin:5px 0 2px;
-  padding:6px 8px;
+  padding:7px 9px;
   background:#f8fafc;
   border:1px solid #e2e8f0;
   border-radius:7px;
   color:#475569;
   font-size:10.5px;
-  line-height:1.5;
+  line-height:1.6;
   text-align:center
 }
 
@@ -129,7 +133,8 @@ input,select{
   font-size:12px
 }
 
-input:focus,select:focus{
+input:focus,
+select:focus{
   outline:2px solid #dbeafe;
   border-color:#2563eb
 }
@@ -170,10 +175,16 @@ input:focus,select:focus{
   text-align:center
 }
 
+.button-row{
+  display:grid;
+  grid-template-columns:1fr 130px;
+  gap:8px;
+  margin-top:10px
+}
+
 button{
   width:100%;
   height:38px;
-  margin-top:10px;
   border:0;
   border-radius:9px;
   background:#16a34a;
@@ -186,6 +197,11 @@ button{
 
 button:active{
   transform:scale(.99)
+}
+
+.clear-btn{
+  background:#e5e7eb;
+  color:#374151
 }
 
 .note{
@@ -201,6 +217,19 @@ button:active{
   background:#fff1f2;
   color:#9f1239;
   border:1px solid #fecdd3;
+  padding:6px;
+  border-radius:7px;
+  margin-top:6px;
+  font-size:11px;
+  font-weight:700;
+  text-align:center
+}
+
+.success{
+  display:none;
+  background:#f0fdf4;
+  color:#166534;
+  border:1px solid #bbf7d0;
   padding:6px;
   border-radius:7px;
   margin-top:6px;
@@ -254,10 +283,15 @@ button:active{
     padding:0 6px
   }
 
+  .button-row{
+    grid-template-columns:1fr 105px;
+    gap:5px;
+    margin-top:8px
+  }
+
   button{
     height:36px;
-    font-size:13px;
-    margin-top:8px
+    font-size:13px
   }
 
   h2{
@@ -283,21 +317,27 @@ button:active{
     padding:5px 6px
   }
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="wrap">
+
 <div class="card">
 
 <header class="header">
 
 <h1 class="title">مكتب عقود إيجار</h1>
 
-<a class="phone" href="tel:0536305035">0536305035</a>
+<a class="phone" href="tel:0536305035">
+0536305035
+</a>
 
-<p class="intro">بيانات العقار المطلوبة لإعداد العقد</p>
+<p class="intro">
+بيانات العقار المطلوبة لإعداد العقد
+</p>
 
 <div class="info-note">
 البيانات الموجودة في هذا النموذج مطابقة للبيانات المتاحة في منصة إيجار، ولا يمكننا إضافة أي خانة أو بند إضافي أو أي تفاصيل غير موجودة ضمن بيانات المنصة.
@@ -305,22 +345,43 @@ button:active{
 
 </header>
 
+
 <form id="form" novalidate>
 
 <h2>بيانات العقار</h2>
 
 <div class="grid">
 
+
 <div class="field span-2">
-<label>رقم جوال الي تتواصل معايه <span class="req">*</span></label>
-<input name="phone" inputmode="tel" required>
+
+<label>
+رقم جوال الي تتواصل معايه
+<span class="req">*</span>
+</label>
+
+<input
+name="phone"
+inputmode="tel"
+placeholder="05xxxxxxxx"
+maxlength="15"
+required
+>
+
 </div>
 
+
 <div class="field">
-<label>نوع العقار <span class="req">*</span></label>
+
+<label>
+نوع العقار
+<span class="req">*</span>
+</label>
 
 <select name="propertyType" required>
+
 <option value="">اختر</option>
+
 <option>عمارة</option>
 <option>فيلا</option>
 <option>مجمع تجاري (بلازا)</option>
@@ -328,34 +389,74 @@ button:active{
 <option>أرض</option>
 <option>برج</option>
 <option>استراحة</option>
+
 </select>
+
 </div>
 
+
 <div class="field">
-<label>استخدام العقار <span class="req">*</span></label>
+
+<label>
+استخدام العقار
+<span class="req">*</span>
+</label>
 
 <select name="usage" required>
+
 <option value="">اختر</option>
+
 <option>سكني عائلات</option>
 <option>سكني - تجاري</option>
 <option>تجاري</option>
 <option>سكني أفراد</option>
+
 </select>
+
 </div>
 
-<div class="field">
-<label>عدد الطوابق <span class="req">*</span></label>
-<input name="floors" type="number" min="0" inputmode="numeric" required>
-</div>
 
 <div class="field">
-<label>عدد الوحدات في كل طابق <span class="req">*</span></label>
-<input name="unitsPerFloor" type="number" min="0" inputmode="numeric" required>
+
+<label>
+عدد الأدوار في كامل العقار
+<span class="req">*</span>
+</label>
+
+<input
+name="floors"
+type="number"
+min="0"
+inputmode="numeric"
+required
+>
+
 </div>
+
+
+<div class="field">
+
+<label>
+عدد الوحدات في كل طابق
+<span class="req">*</span>
+</label>
+
+<input
+name="unitsPerFloor"
+type="number"
+min="0"
+inputmode="numeric"
+required
+>
+
+</div>
+
 
 <div class="field total-box">
 
-<label>إجمالي الوحدات:</label>
+<label>
+إجمالي وحدات العقار:
+</label>
 
 <input
 id="totalUnits"
@@ -366,37 +467,91 @@ readonly
 
 </div>
 
+
 <div class="total-note">
+
 هذا الإجمالي سيظهر في صورة العقد حسب نظام منصة إيجار، ولا نستطيع تعديل طريقة عرض أو احتساب الإجمالي من داخل المنصة.
+
 </div>
+
 
 <div class="field">
-<label>عدد المصاعد في كامل العقار</label>
-<input name="elevators" type="number" min="0" inputmode="numeric">
+
+<label>
+عدد المصاعد في كامل العقار
+</label>
+
+<select name="elevators">
+
+<option value="">اختر</option>
+<option>لا يوجد</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+
+</select>
+
 </div>
+
 
 <div class="field">
-<label>عدد المواقف في كامل العقار</label>
-<input name="parking" type="number" min="0" inputmode="numeric">
-</div>
+
+<label>
+عدد المواقف في كامل العقار
+</label>
+
+<input
+name="parking"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
 
 </div>
+
+
+</div>
+
 
 <h2>بيانات الوحدة</h2>
 
 <div class="grid">
 
-<div class="field">
-<label>رقم/اسم الوحدة <span class="req">*</span></label>
-<input name="unitName" required>
-</div>
 
 <div class="field">
-<label>نوع الوحدة <span class="req">*</span></label>
+
+<label>
+رقم/اسم الوحدة
+<span class="req">*</span>
+</label>
+
+<input
+name="unitName"
+required
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+نوع الوحدة
+<span class="req">*</span>
+</label>
 
 <select name="unitType" required>
 
 <option value="">اختر</option>
+
 <option>شقة</option>
 <option>فيلا</option>
 <option>محل</option>
@@ -421,107 +576,280 @@ readonly
 <option>شقة دورين</option>
 
 </select>
+
 </div>
 
-<div class="field">
-<label>رقم الطابق <span class="req">*</span></label>
-<input name="floor" required>
-</div>
 
 <div class="field">
-<label>مساحة الوحدة</label>
-<input name="area" inputmode="decimal">
+
+<label>
+رقم الطابق
+<span class="req">*</span>
+</label>
+
+<input
+name="floor"
+required
+>
+
 </div>
 
+
 <div class="field">
-<label>الوحدة مؤثثة؟</label>
+
+<label>
+مساحة الوحدة
+</label>
+
+<input
+name="area"
+inputmode="decimal"
+placeholder="متر مربع"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+الوحدة مؤثثة؟
+</label>
 
 <select name="furnished">
+
 <option value="">اختر</option>
 <option>نعم</option>
 <option>لا</option>
+<option>غير متوفر</option>
+
 </select>
 
 </div>
 
+
 <div class="field">
-<label>هل يوجد دواليب مطبخ؟</label>
+
+<label>
+هل يوجد دواليب مطبخ؟
+</label>
 
 <select name="kitchenCabinets">
+
 <option value="">اختر</option>
 <option>نعم</option>
 <option>لا</option>
+<option>غير متوفر</option>
+
 </select>
 
 </div>
 
-<div class="field">
-<label>عدد غرف النوم</label>
-<input name="bedrooms" type="number" min="0">
-</div>
 
 <div class="field">
-<label>عدد الصالات</label>
-<input name="livingRooms" type="number" min="0">
+
+<label>
+عدد غرف النوم
+</label>
+
+<input
+name="bedrooms"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
+
 </div>
 
-<div class="field">
-<label>عدد دورات المياه</label>
-<input name="bathrooms" type="number" min="0">
-</div>
 
 <div class="field">
-<label>عدد المطابخ</label>
-<input name="kitchens" type="number" min="0">
+
+<label>
+عدد الصالات
+</label>
+
+<input
+name="livingRooms"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
+
 </div>
 
-<div class="field">
-<label>عدد المجالس</label>
-<input name="majlis" type="number" min="0">
-</div>
 
 <div class="field">
-<label>عدد المخازن</label>
-<input name="storage" type="number" min="0">
+
+<label>
+عدد دورات المياه
+</label>
+
+<input
+name="bathrooms"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
+
 </div>
 
-<div class="field">
-<label>عدد مكيات سبلت</label>
-<input name="splitAC" type="number" min="0">
-</div>
 
 <div class="field">
-<label>عدد مكيفات شباك</label>
-<input name="windowAC" type="number" min="0">
+
+<label>
+عدد المطابخ
+</label>
+
+<input
+name="kitchens"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
+
 </div>
+
+
+<div class="field">
+
+<label>
+عدد المجالس
+</label>
+
+<input
+name="majlis"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+عدد المخازن
+</label>
+
+<input
+name="storage"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+عدد مكيات سبلت
+</label>
+
+<input
+name="splitAC"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
+
+</div>
+
+
+<div class="field">
+
+<label>
+عدد مكيفات شباك
+</label>
+
+<input
+name="windowAC"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
+
+</div>
+
 
 <div class="field span-2">
-<label>رقم عداد الكهرباء أن وجد</label>
-<input name="electricity" placeholder="رقم العداد">
+
+<label>
+رقم عداد الكهرباء أن وجد
+</label>
+
+<input
+name="electricity"
+placeholder="رقم العداد أو اتركه فارغًا"
+>
+
 </div>
+
 
 <div class="field span-2">
-<label>رقم عداد الماء أن وجد</label>
-<input name="water" placeholder="رقم العداد">
-</div>
+
+<label>
+رقم عداد الماء أن وجد
+</label>
+
+<input
+name="water"
+placeholder="رقم العداد أو اتركه فارغًا"
+>
 
 </div>
+
+
+</div>
+
+
+<div class="button-row">
 
 <button type="submit">
 إرسال البيانات عبر واتساب
 </button>
 
+<button
+type="button"
+class="clear-btn"
+id="clearBtn"
+>
+مسح البيانات
+</button>
+
+</div>
+
+
 <p class="note">
-بعد الضغط سيتم فتح واتساب والرسالة جاهزة للإرسال.
+بعد الضغط سيتم التأكد من البيانات ثم فتح واتساب والرسالة جاهزة للإرسال.
 </p>
+
 
 <div id="error" class="error">
 ⚠️ يجب إكمال البيانات المطلوبة لتتمكن من الإرسال
 </div>
 
+
+<div id="success" class="success">
+✓ تم تجهيز البيانات بنجاح
+</div>
+
+
 </form>
+
 </div>
 </div>
+
 
 <script>
 
@@ -537,6 +865,14 @@ const totalUnits=document.getElementById("totalUnits");
 
 const errorBox=document.getElementById("error");
 
+const successBox=document.getElementById("success");
+
+const clearBtn=document.getElementById("clearBtn");
+
+const STORAGE_KEY="ijar_property_form_data";
+
+
+/* حساب إجمالي الوحدات */
 
 function updateTotal(){
 
@@ -545,20 +881,146 @@ function updateTotal(){
   const b=parseInt(unitsPerFloor.value,10);
 
   const total=
-    (Number.isFinite(a)&&a>=0&&Number.isFinite(b)&&b>=0)
-    ?a*b
-    :0;
+    (
+      Number.isFinite(a) &&
+      a>=0 &&
+      Number.isFinite(b) &&
+      b>=0
+    )
+    ? a*b
+    : 0;
 
   totalUnits.value=total+" وحدة";
 }
 
 
-floors.addEventListener("input",updateTotal);
+floors.addEventListener("input",function(){
 
-unitsPerFloor.addEventListener("input",updateTotal);
+  preventNegative(floors);
 
-updateTotal();
+  updateTotal();
 
+  saveForm();
+
+});
+
+
+unitsPerFloor.addEventListener("input",function(){
+
+  preventNegative(unitsPerFloor);
+
+  updateTotal();
+
+  saveForm();
+
+});
+
+
+/* منع الأرقام السالبة */
+
+function preventNegative(input){
+
+  if(
+    input.type==="number" &&
+    input.value!=="" &&
+    Number(input.value)<0
+  ){
+
+    input.value="0";
+
+  }
+}
+
+
+/* حفظ البيانات تلقائيًا */
+
+function saveForm(){
+
+  const data={};
+
+  const fields=form.querySelectorAll("input,select");
+
+  fields.forEach(field=>{
+
+    if(field.id==="totalUnits") return;
+
+    if(field.name){
+
+      data[field.name]=field.value;
+
+    }
+
+  });
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify(data)
+  );
+}
+
+
+/* استرجاع البيانات */
+
+function loadForm(){
+
+  try{
+
+    const saved=localStorage.getItem(STORAGE_KEY);
+
+    if(!saved) return;
+
+    const data=JSON.parse(saved);
+
+    Object.keys(data).forEach(name=>{
+
+      const field=form.querySelector(
+        `[name="${name}"]`
+      );
+
+      if(field){
+
+        field.value=data[name];
+
+      }
+
+    });
+
+    updateTotal();
+
+  }catch(error){
+
+    console.log("تعذر استرجاع البيانات");
+
+  }
+
+}
+
+
+/* حفظ أي تغيير */
+
+form.addEventListener("input",function(e){
+
+  if(
+    e.target.type==="number"
+  ){
+
+    preventNegative(e.target);
+
+  }
+
+  saveForm();
+
+});
+
+
+form.addEventListener("change",function(){
+
+  saveForm();
+
+});
+
+
+/* التحقق من الحقول المطلوبة */
 
 function validateRequired(){
 
@@ -566,9 +1028,14 @@ function validateRequired(){
     ...form.querySelectorAll("[required]")
   ];
 
-  const missing=fields.filter(el=>
-    !String(el.value||"").trim()
-  );
+  const missing=fields.filter(el=>{
+
+    return !String(
+      el.value||""
+    ).trim();
+
+  });
+
 
   if(missing.length){
 
@@ -577,32 +1044,131 @@ function validateRequired(){
 
     errorBox.style.display="block";
 
+    successBox.style.display="none";
+
+
     missing[0].scrollIntoView({
+
       behavior:"smooth",
       block:"center"
+
     });
 
-    missing[0].focus();
+
+    setTimeout(function(){
+
+      missing[0].focus();
+
+    },400);
+
 
     return false;
+
   }
+
 
   errorBox.style.display="none";
 
   return true;
+
 }
 
+
+/* تنظيف قيمة الجوال */
+
+function cleanPhone(phone){
+
+  let value=String(phone||"")
+    .replace(/\s+/g,"")
+    .replace(/-/g,"");
+
+
+  if(value.startsWith("+966")){
+
+    value=value.substring(1);
+
+  }
+
+
+  if(value.startsWith("966")){
+
+    return value;
+
+  }
+
+
+  if(value.startsWith("05")){
+
+    return "966"+value.substring(1);
+
+  }
+
+
+  return value;
+
+}
+
+
+/* تحويل الفراغ إلى غير متوفر */
+
+function getValue(data,key){
+
+  const value=(data.get(key)||"").trim();
+
+  return value||"غير متوفر";
+
+}
+
+
+/* إرسال البيانات */
 
 form.addEventListener("submit",function(e){
 
   e.preventDefault();
 
-  if(!validateRequired()) return;
+
+  if(!validateRequired()){
+
+    return;
+
+  }
+
+
+  const phoneInput=
+    form.querySelector('[name="phone"]');
+
+
+  const phoneRaw=
+    phoneInput.value.trim();
+
+
+  const phoneDigits=
+    phoneRaw.replace(/\D/g,"");
+
+
+  const validSaudi=
+    /^05\d{8}$/.test(phoneDigits) ||
+    /^9665\d{8}$/.test(phoneDigits);
+
+
+  if(!validSaudi){
+
+    errorBox.textContent=
+      "⚠️ يرجى إدخال رقم جوال سعودي صحيح";
+
+    errorBox.style.display="block";
+
+    successBox.style.display="none";
+
+    phoneInput.focus();
+
+    return;
+
+  }
+
 
   const d=new FormData(form);
 
-  const v=k=>
-    (d.get(k)||"").trim()||"غير متوفر";
 
   const total=
     (parseInt(floors.value,10)||0) *
@@ -611,49 +1177,108 @@ form.addEventListener("submit",function(e){
 
   const msg=`*بيانات العقار - مكتب عقود إيجار*
 
-رقم جوال الي تتواصل معايه: ${v("phone")}
-نوع العقار: ${v("propertyType")}
-استخدام العقار: ${v("usage")}
-عدد الطوابق: ${v("floors")}
-عدد الوحدات في كل طابق: ${v("unitsPerFloor")}
-*إجمالي عدد الوحدات في العقار: ${total} وحدة*
-عدد المصاعد في كامل العقار: ${v("elevators")}
-عدد المواقف في كامل العقار: ${v("parking")}
+رقم جوال الي تتواصل معايه: ${getValue(d,"phone")}
+نوع العقار: ${getValue(d,"propertyType")}
+استخدام العقار: ${getValue(d,"usage")}
+عدد الأدوار في كامل العقار: ${getValue(d,"floors")}
+عدد الوحدات في كل طابق: ${getValue(d,"unitsPerFloor")}
+*إجمالي وحدات العقار: ${total} وحدة*
+عدد المصاعد في كامل العقار: ${getValue(d,"elevators")}
+عدد المواقف في كامل العقار: ${getValue(d,"parking")}
 
 *بيانات الوحدة*
 
-رقم/اسم الوحدة: ${v("unitName")}
-نوع الوحدة: ${v("unitType")}
-رقم الطابق: ${v("floor")}
-مساحة الوحدة: ${v("area")}
-الوحدة مؤثثة؟ ${v("furnished")}
-هل يوجد دواليب مطبخ؟ ${v("kitchenCabinets")}
-عدد غرف النوم: ${v("bedrooms")}
-عدد الصالات: ${v("livingRooms")}
-عدد دورات المياه: ${v("bathrooms")}
-عدد المطابخ: ${v("kitchens")}
-عدد المجالس: ${v("majlis")}
-عدد المخازن: ${v("storage")}
-عدد مكيات سبلت: ${v("splitAC")}
-عدد مكيفات شباك: ${v("windowAC")}
-رقم عداد الكهرباء أن وجد: ${v("electricity")}
-رقم عداد الماء أن وجد: ${v("water")}`;
+رقم/اسم الوحدة: ${getValue(d,"unitName")}
+نوع الوحدة: ${getValue(d,"unitType")}
+رقم الطابق: ${getValue(d,"floor")}
+مساحة الوحدة: ${getValue(d,"area")}
+الوحدة مؤثثة؟ ${getValue(d,"furnished")}
+هل يوجد دواليب مطبخ؟ ${getValue(d,"kitchenCabinets")}
+عدد غرف النوم: ${getValue(d,"bedrooms")}
+عدد الصالات: ${getValue(d,"livingRooms")}
+عدد دورات المياه: ${getValue(d,"bathrooms")}
+عدد المطابخ: ${getValue(d,"kitchens")}
+عدد المجالس: ${getValue(d,"majlis")}
+عدد المخازن: ${getValue(d,"storage")}
+عدد مكيات سبلت: ${getValue(d,"splitAC")}
+عدد مكيفات شباك: ${getValue(d,"windowAC")}
+رقم عداد الكهرباء أن وجد: ${getValue(d,"electricity")}
+رقم عداد الماء أن وجد: ${getValue(d,"water")}`;
 
 
-  const url=
-    "https://wa.me/"+
-    receiver+
-    "?text="+
-    encodeURIComponent(msg);
+  successBox.textContent=
+    "✓ تم تجهيز البيانات بنجاح، سيتم فتح واتساب لإرسالها.";
+
+  successBox.style.display="block";
+
+  errorBox.style.display="none";
 
 
-  const w=window.open(url,"_blank");
+  setTimeout(function(){
 
-  if(!w){
-    window.location.href=url;
-  }
+    const url=
+      "https://wa.me/"+
+      receiver+
+      "?text="+
+      encodeURIComponent(msg);
+
+
+    const w=
+      window.open(url,"_blank");
+
+
+    if(!w){
+
+      window.location.href=url;
+
+    }
+
+  },500);
 
 });
+
+
+/* زر مسح البيانات */
+
+clearBtn.addEventListener("click",function(){
+
+  const confirmed=
+    confirm(
+      "هل أنت متأكد من مسح جميع البيانات التي تم إدخالها؟"
+    );
+
+
+  if(!confirmed) return;
+
+
+  form.reset();
+
+  localStorage.removeItem(STORAGE_KEY);
+
+  updateTotal();
+
+  errorBox.style.display="none";
+
+  successBox.textContent=
+    "✓ تم مسح جميع البيانات";
+
+  successBox.style.display="block";
+
+
+  setTimeout(function(){
+
+    successBox.style.display="none";
+
+  },2000);
+
+});
+
+
+/* تشغيل النظام */
+
+loadForm();
+
+updateTotal();
 
 </script>
 
