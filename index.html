@@ -17,7 +17,7 @@ html,body{
   height:100%;
   margin:0;
   padding:0;
-  background:#f4f6f8;
+  background:#eef5f1;
   color:#17202a;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
   overflow-x:hidden
@@ -26,7 +26,7 @@ html,body{
 .wrap{
   max-width:900px;
   margin:0 auto;
-  padding:8px;
+  padding:5px;
   min-height:100vh;
   display:flex;
   flex-direction:column;
@@ -35,32 +35,31 @@ html,body{
 
 .card{
   background:#fff;
-  border-radius:16px;
-  padding:12px 16px;
+  border-radius:14px;
+  padding:9px 12px;
   box-shadow:0 4px 20px rgba(0,0,0,.08);
   display:flex;
   flex-direction:column;
-  max-height:100vh
 }
 
 .header{
   text-align:center;
-  padding:2px 0 6px;
+  padding:1px 0 4px;
   flex-shrink:0
 }
 
 .title{
-  font-size:18px;
+  font-size:17px;
   font-weight:800;
   margin:0
 }
 
 .phone{
   display:inline-block;
-  margin-top:2px;
+  margin-top:1px;
   color:#0b57d0;
   text-decoration:none;
-  font-size:14px;
+  font-size:13px;
   font-weight:700;
   direction:ltr
 }
@@ -68,39 +67,45 @@ html,body{
 .intro{
   margin:1px 0 0;
   color:#6b7280;
-  font-size:11px
+  font-size:10px
 }
 
 .info-note{
-  margin:5px 0 2px;
-  padding:7px 9px;
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
+  margin:4px auto 2px;
+  padding:5px 7px;
+  background:#f1f8f4;
+  border:1px solid #d5e8de;
   border-radius:7px;
   color:#475569;
-  font-size:10.5px;
-  line-height:1.6;
-  text-align:center
+  font-size:9.5px;
+  line-height:1.45;
+  text-align:center;
+  max-width:800px
 }
 
 h2{
-  font-size:13px;
-  margin:6px 0 4px;
-  padding-bottom:3px;
-  border-bottom:1px solid #e9ecef;
-  color:#2563eb;
+  font-size:12px;
+  margin:4px 0 3px;
+  padding-bottom:2px;
+  border-bottom:1px solid #e1e8e4;
+  color:#087443;
   font-weight:800
 }
 
+/* ===== شبكة الحقول ===== */
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:4px 8px;
-  align-items:start
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:3px 5px;
+  align-items:start;
+  justify-content:center
 }
 
 .field{
-  margin-bottom:0
+  margin:0;
+  min-width:0;
+  width:100%
 }
 
 .span-2{
@@ -109,10 +114,11 @@ h2{
 
 label{
   display:block;
-  font-size:11px;
+  font-size:10px;
   font-weight:700;
-  margin:2px 0 2px;
-  white-space:nowrap;
+  margin:1px 0 1px;
+  line-height:1.2;
+  white-space:normal;
   overflow:hidden;
   text-overflow:ellipsis
 }
@@ -122,77 +128,90 @@ label{
   font-weight:bold
 }
 
-input,select{
+input,
+select{
   width:100%;
-  height:32px;
-  padding:0 8px;
-  border:1px solid #d7dce2;
-  border-radius:7px;
+  height:27px;
+  padding:0 6px;
+  border:1px solid #d5dce0;
+  border-radius:6px;
   background:#fff;
   color:#222;
-  font-size:12px
+  font-size:10.5px;
+  min-width:0
 }
 
 input:focus,
 select:focus{
-  outline:2px solid #dbeafe;
-  border-color:#2563eb
+  outline:2px solid #d8eee2;
+  border-color:#16804f
 }
 
+input::placeholder{
+  color:#9ca3af;
+  font-size:9.5px
+}
+
+/* ===== إجمالي الوحدات ===== */
+
 .total-box{
-  padding:6px 8px;
-  border:1px solid #e2e8f0;
-  border-radius:8px;
-  background:#f8fafc;
+  padding:4px 6px;
+  border:1px solid #dce8e1;
+  border-radius:7px;
+  background:#f8fbf9;
   display:flex;
   align-items:center;
-  gap:8px;
-  grid-column:span 2
+  gap:5px;
+  min-width:0;
+  width:100%
 }
 
 .total-box label{
   margin:0;
-  flex-shrink:0
+  flex-shrink:0;
+  font-size:9.5px
 }
 
 .total-box input{
-  height:28px;
+  height:24px;
   font-weight:bold;
   color:#16a34a;
-  text-align:center
+  text-align:center;
+  padding:0 3px
 }
 
 .total-note{
   grid-column:1/-1;
-  margin-top:-1px;
-  padding:5px 8px;
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  border-radius:7px;
+  margin:0;
+  padding:4px 6px;
+  background:#f8fbf9;
+  border:1px solid #e0ebe5;
+  border-radius:6px;
   color:#64748b;
-  font-size:10px;
-  line-height:1.5;
+  font-size:9px;
+  line-height:1.4;
   text-align:center
 }
 
+/* ===== الأزرار ===== */
+
 .button-row{
   display:grid;
-  grid-template-columns:1fr 130px;
-  gap:8px;
-  margin-top:10px
+  grid-template-columns:1fr 120px;
+  gap:6px;
+  margin-top:6px
 }
 
 button{
   width:100%;
-  height:38px;
+  height:32px;
   border:0;
-  border-radius:9px;
+  border-radius:8px;
   background:#16a34a;
   color:#fff;
-  font-size:14px;
+  font-size:12px;
   font-weight:800;
-  cursor:pointer;
-  flex-shrink:0
+  cursor:pointer
 }
 
 button:active{
@@ -207,9 +226,8 @@ button:active{
 .note{
   text-align:center;
   color:#777;
-  font-size:10px;
-  margin:4px 0 0;
-  flex-shrink:0
+  font-size:9px;
+  margin:3px 0 0
 }
 
 .error{
@@ -217,10 +235,10 @@ button:active{
   background:#fff1f2;
   color:#9f1239;
   border:1px solid #fecdd3;
-  padding:6px;
-  border-radius:7px;
-  margin-top:6px;
-  font-size:11px;
+  padding:5px;
+  border-radius:6px;
+  margin-top:4px;
+  font-size:10px;
   font-weight:700;
   text-align:center
 }
@@ -230,92 +248,172 @@ button:active{
   background:#f0fdf4;
   color:#166534;
   border:1px solid #bbf7d0;
-  padding:6px;
-  border-radius:7px;
-  margin-top:6px;
-  font-size:11px;
+  padding:5px;
+  border-radius:6px;
+  margin-top:4px;
+  font-size:10px;
   font-weight:700;
   text-align:center
 }
 
+
+/* ===== الجوال: 3 حقول في الصف ===== */
+
 @media(max-width:768px){
 
   .wrap{
-    padding:4px;
-    height:auto;
+    padding:3px;
     min-height:100vh;
     justify-content:flex-start
   }
 
   .card{
-    padding:10px;
-    max-height:none
+    padding:7px 8px;
+    border-radius:12px
   }
 
-  .grid{
-    grid-template-columns:1fr 1fr;
-    gap:3px 6px
-  }
-
-  .span-2{
-    grid-column:span 1
-  }
-
-  .total-box{
-    grid-column:span 2;
-    flex-direction:column;
-    align-items:stretch;
-    gap:2px
-  }
-
-  .total-note{
-    grid-column:1/-1
-  }
-
-  label{
-    font-size:10.5px;
-    white-space:normal
-  }
-
-  input,select{
-    height:30px;
-    font-size:11.5px;
-    padding:0 6px
-  }
-
-  .button-row{
-    grid-template-columns:1fr 105px;
-    gap:5px;
-    margin-top:8px
-  }
-
-  button{
-    height:36px;
-    font-size:13px
-  }
-
-  h2{
-    font-size:12px;
-    margin:4px 0 2px
+  .header{
+    padding-bottom:3px
   }
 
   .title{
-    font-size:16px
+    font-size:15px
   }
 
   .phone{
-    font-size:13px
+    font-size:12px
+  }
+
+  .intro{
+    font-size:9px
   }
 
   .info-note{
-    font-size:10px;
-    padding:5px 6px
+    font-size:8.5px;
+    padding:4px 5px;
+    margin:3px auto 2px
+  }
+
+  h2{
+    font-size:11px;
+    margin:3px 0 2px
+  }
+
+  /* 3 أعمدة */
+  .grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:3px 4px
+  }
+
+  .field{
+    width:100%;
+    min-width:0
+  }
+
+  .span-2{
+    grid-column:span 2
+  }
+
+  label{
+    font-size:9px;
+    line-height:1.15;
+    margin:1px 0
+  }
+
+  input,
+  select{
+    height:25px;
+    font-size:9.5px;
+    padding:0 4px;
+    border-radius:5px
+  }
+
+  input::placeholder{
+    font-size:8px
+  }
+
+  .total-box{
+    padding:3px 4px;
+    gap:3px;
+    min-height:25px
+  }
+
+  .total-box label{
+    font-size:8.5px
+  }
+
+  .total-box input{
+    height:21px;
+    font-size:9.5px
   }
 
   .total-note{
-    font-size:9.5px;
-    padding:5px 6px
+    font-size:8px;
+    padding:3px 4px
   }
+
+  .button-row{
+    grid-template-columns:1fr 100px;
+    gap:4px;
+    margin-top:5px
+  }
+
+  button{
+    height:31px;
+    font-size:11px;
+    border-radius:7px
+  }
+
+  .note{
+    font-size:8px;
+    margin:2px 0 0
+  }
+
+  .error,
+  .success{
+    font-size:9px;
+    padding:4px;
+    margin-top:3px
+  }
+}
+
+
+/* ===== الشاشات الصغيرة جدًا ===== */
+
+@media(max-width:380px){
+
+  .card{
+    padding:6px
+  }
+
+  .grid{
+    gap:2px 3px
+  }
+
+  label{
+    font-size:8.5px
+  }
+
+  input,
+  select{
+    height:24px;
+    font-size:9px;
+    padding:0 3px
+  }
+
+  .info-note{
+    font-size:8px
+  }
+
+  h2{
+    font-size:10.5px
+  }
+
+  button{
+    height:30px;
+    font-size:10.5px
+  }
+
 }
 
 </style>
@@ -381,7 +479,6 @@ required
 <select name="propertyType" required>
 
 <option value="">اختر</option>
-
 <option>عمارة</option>
 <option>فيلا</option>
 <option>مجمع تجاري (بلازا)</option>
@@ -405,7 +502,6 @@ required
 <select name="usage" required>
 
 <option value="">اختر</option>
-
 <option>سكني عائلات</option>
 <option>سكني - تجاري</option>
 <option>تجاري</option>
@@ -551,7 +647,6 @@ required
 <select name="unitType" required>
 
 <option value="">اختر</option>
-
 <option>شقة</option>
 <option>فيلا</option>
 <option>محل</option>
@@ -782,7 +877,7 @@ placeholder="إذا لا يوجد اكتب 0"
 </div>
 
 
-<div class="field span-2">
+<div class="field">
 
 <label>
 رقم عداد الكهرباء أن وجد
@@ -790,13 +885,13 @@ placeholder="إذا لا يوجد اكتب 0"
 
 <input
 name="electricity"
-placeholder="رقم العداد أو اتركه فارغًا"
+placeholder="رقم العداد"
 >
 
 </div>
 
 
-<div class="field span-2">
+<div class="field">
 
 <label>
 رقم عداد الماء أن وجد
@@ -804,7 +899,7 @@ placeholder="رقم العداد أو اتركه فارغًا"
 
 <input
 name="water"
-placeholder="رقم العداد أو اتركه فارغًا"
+placeholder="رقم العداد"
 >
 
 </div>
@@ -1074,7 +1169,7 @@ function validateRequired(){
 }
 
 
-/* تنظيف قيمة الجوال */
+/* التحقق من رقم الجوال */
 
 function cleanPhone(phone){
 
@@ -1109,7 +1204,7 @@ function cleanPhone(phone){
 }
 
 
-/* تحويل الفراغ إلى غير متوفر */
+/* قراءة قيمة الحقل */
 
 function getValue(data,key){
 
@@ -1274,7 +1369,7 @@ clearBtn.addEventListener("click",function(){
 });
 
 
-/* تشغيل النظام */
+/* تشغيل الصفحة */
 
 loadForm();
 
