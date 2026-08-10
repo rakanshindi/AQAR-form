@@ -10,416 +10,487 @@
 <style>
 
 *{
-  box-sizing:border-box
+box-sizing:border-box
 }
 
 html,body{
-  height:100%;
-  margin:0;
-  padding:0;
-  background:#eef5f1;
-  color:#17202a;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
-  overflow-x:hidden
+height:100%;
+margin:0;
+padding:0;
+background:#eef5f1;
+color:#17202a;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,Arial,sans-serif;
+overflow-x:hidden
 }
 
 .wrap{
-  max-width:900px;
-  margin:0 auto;
-  padding:5px;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center
+max-width:900px;
+margin:0 auto;
+padding:5px;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center
 }
 
 .card{
-  background:#fff;
-  border-radius:14px;
-  padding:9px 12px;
-  box-shadow:0 4px 20px rgba(0,0,0,.08);
-  display:flex;
-  flex-direction:column;
+background:#fff;
+border-radius:14px;
+padding:9px 12px;
+box-shadow:0 4px 20px rgba(0,0,0,.08);
+display:flex;
+flex-direction:column
 }
 
 .header{
-  text-align:center;
-  padding:1px 0 4px;
-  flex-shrink:0
+text-align:center;
+padding:1px 0 4px
 }
 
 .title{
-  font-size:17px;
-  font-weight:800;
-  margin:0
+font-size:17px;
+font-weight:800;
+margin:0
 }
 
 .phone{
-  display:inline-block;
-  margin-top:1px;
-  color:#0b57d0;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:700;
-  direction:ltr
+display:inline-block;
+margin-top:1px;
+color:#0b57d0;
+text-decoration:none;
+font-size:13px;
+font-weight:700;
+direction:ltr
 }
 
 .intro{
-  margin:1px 0 0;
-  color:#6b7280;
-  font-size:10px
+margin:1px 0 0;
+color:#6b7280;
+font-size:10px
 }
 
 .info-note{
-  margin:4px auto 2px;
-  padding:5px 7px;
-  background:#f1f8f4;
-  border:1px solid #d5e8de;
-  border-radius:7px;
-  color:#475569;
-  font-size:9.5px;
-  line-height:1.45;
-  text-align:center;
-  max-width:800px
+margin:4px auto 2px;
+padding:5px 7px;
+background:#f1f8f4;
+border:1px solid #d5e8de;
+border-radius:7px;
+color:#475569;
+font-size:9.5px;
+line-height:1.45;
+text-align:center;
+max-width:800px
 }
 
 h2{
-  font-size:12px;
-  margin:4px 0 3px;
-  padding-bottom:2px;
-  border-bottom:1px solid #e1e8e4;
-  color:#087443;
-  font-weight:800
+font-size:12px;
+margin:4px 0 3px;
+padding-bottom:2px;
+border-bottom:1px solid #e1e8e4;
+color:#087443;
+font-weight:800
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:3px 5px;
-  align-items:start;
-  justify-content:center
+display:grid;
+grid-template-columns:repeat(4,minmax(0,1fr));
+gap:3px 5px;
+align-items:start
 }
 
 .field{
-  margin:0;
-  min-width:0;
-  width:100%
+margin:0;
+min-width:0;
+width:100%
 }
 
 .span-2{
-  grid-column:span 2
+grid-column:span 2
+}
+
+.span-4{
+grid-column:1/-1
 }
 
 label{
-  display:block;
-  font-size:10px;
-  font-weight:700;
-  margin:1px 0 1px;
-  line-height:1.2;
-  white-space:normal;
-  overflow:hidden;
-  text-overflow:ellipsis
+display:block;
+font-size:10px;
+font-weight:700;
+margin:1px 0 1px;
+line-height:1.2;
+white-space:normal
 }
 
 .req{
-  color:#dc2626;
-  font-weight:bold
+color:#dc2626;
+font-weight:bold
 }
 
 input,
 select{
-  width:100%;
-  height:27px;
-  padding:0 6px;
-  border:1px solid #d5dce0;
-  border-radius:6px;
-  background:#fff;
-  color:#222;
-  font-size:10.5px;
-  min-width:0
+width:100%;
+height:27px;
+padding:0 6px;
+border:1px solid #d5dce0;
+border-radius:6px;
+background:#fff;
+color:#222;
+font-size:10.5px;
+min-width:0
 }
 
 input:focus,
 select:focus{
-  outline:2px solid #d8eee2;
-  border-color:#16804f
+outline:2px solid #d8eee2;
+border-color:#16804f
 }
 
 input::placeholder{
-  color:#9ca3af;
-  font-size:9.5px
+color:#9ca3af;
+font-size:9.5px
 }
 
+
+/* إجمالي الوحدات */
+
 .total-box{
-  padding:4px 6px;
-  border:1px solid #dce8e1;
-  border-radius:7px;
-  background:#f8fbf9;
-  display:flex;
-  align-items:center;
-  gap:5px;
-  min-width:0;
-  width:100%
+grid-column:1/-1;
+padding:4px 7px;
+border:1px solid #dce8e1;
+border-radius:7px;
+background:#f8fbf9;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+min-height:30px;
+width:100%
 }
 
 .total-box label{
-  margin:0;
-  flex-shrink:0;
-  font-size:9.5px
+margin:0;
+font-size:10px;
+white-space:nowrap
 }
 
 .total-box input{
-  height:24px;
-  font-weight:bold;
-  color:#16a34a;
-  text-align:center;
-  padding:0 3px
+width:100px;
+height:24px;
+font-weight:bold;
+color:#16a34a;
+text-align:center;
+padding:0 4px;
+background:#fff;
+border:1px solid #d8e3dd;
+border-radius:6px;
+flex-shrink:0
 }
 
 .total-note{
-  grid-column:1/-1;
-  margin:0;
-  padding:4px 6px;
-  background:#f8fbf9;
-  border:1px solid #e0ebe5;
-  border-radius:6px;
-  color:#64748b;
-  font-size:9px;
-  line-height:1.4;
-  text-align:center
+grid-column:1/-1;
+margin:0;
+padding:4px 6px;
+background:#f8fbf9;
+border:1px solid #e0ebe5;
+border-radius:6px;
+color:#64748b;
+font-size:9px;
+line-height:1.4;
+text-align:center
 }
 
 .button-row{
-  display:grid;
-  grid-template-columns:1fr 120px;
-  gap:6px;
-  margin-top:6px
+display:grid;
+grid-template-columns:1fr 120px;
+gap:6px;
+margin-top:6px
 }
 
 button{
-  width:100%;
-  height:32px;
-  border:0;
-  border-radius:8px;
-  background:#16a34a;
-  color:#fff;
-  font-size:12px;
-  font-weight:800;
-  cursor:pointer
+width:100%;
+height:32px;
+border:0;
+border-radius:8px;
+background:#16a34a;
+color:#fff;
+font-size:12px;
+font-weight:800;
+cursor:pointer
 }
 
 button:active{
-  transform:scale(.99)
+transform:scale(.99)
 }
 
 .clear-btn{
-  background:#e5e7eb;
-  color:#374151
+background:#e5e7eb;
+color:#374151
 }
 
 .note{
-  text-align:center;
-  color:#777;
-  font-size:9px;
-  margin:3px 0 0
+text-align:center;
+color:#777;
+font-size:9px;
+margin:3px 0 0
 }
 
 .error{
-  display:none;
-  background:#fff1f2;
-  color:#9f1239;
-  border:1px solid #fecdd3;
-  padding:5px;
-  border-radius:6px;
-  margin-top:4px;
-  font-size:10px;
-  font-weight:700;
-  text-align:center
+display:none;
+background:#fff1f2;
+color:#9f1239;
+border:1px solid #fecdd3;
+padding:5px;
+border-radius:6px;
+margin-top:4px;
+font-size:10px;
+font-weight:700;
+text-align:center
 }
 
 .success{
-  display:none;
-  background:#f0fdf4;
-  color:#166534;
-  border:1px solid #bbf7d0;
-  padding:5px;
-  border-radius:6px;
-  margin-top:4px;
-  font-size:10px;
-  font-weight:700;
-  text-align:center
+display:none;
+background:#f0fdf4;
+color:#166534;
+border:1px solid #bbf7d0;
+padding:5px;
+border-radius:6px;
+margin-top:4px;
+font-size:10px;
+font-weight:700;
+text-align:center
 }
 
 
 /* =========================
    الجوال
-   3 حقول في الصف
 ========================= */
 
 @media(max-width:768px){
 
-  .wrap{
-    padding:3px;
-    min-height:100vh;
-    justify-content:flex-start
-  }
+.wrap{
+padding:3px;
+min-height:100vh;
+justify-content:flex-start
+}
 
-  .card{
-    padding:7px 8px;
-    border-radius:12px
-  }
+.card{
+padding:7px 8px;
+border-radius:12px
+}
 
-  .header{
-    padding-bottom:3px
-  }
+.header{
+padding-bottom:3px
+}
 
-  .title{
-    font-size:15px
-  }
+.title{
+font-size:15px
+}
 
-  .phone{
-    font-size:12px
-  }
+.phone{
+font-size:12px
+}
 
-  .intro{
-    font-size:9px
-  }
+.intro{
+font-size:9px
+}
 
-  .info-note{
-    font-size:8.5px;
-    padding:4px 5px;
-    margin:3px auto 2px
-  }
+.info-note{
+font-size:8.5px;
+padding:4px 5px;
+margin:3px auto 2px
+}
 
-  h2{
-    font-size:11px;
-    margin:3px 0 2px
-  }
+h2{
+font-size:11px;
+margin:3px 0 2px
+}
 
-  .grid{
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:3px 4px
-  }
+.grid{
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:3px 4px
+}
 
-  .field{
-    width:100%;
-    min-width:0
-  }
+.field{
+width:100%;
+min-width:0
+}
 
-  .span-2{
-    grid-column:span 2
-  }
+.span-2{
+grid-column:span 2
+}
 
-  label{
-    font-size:9px;
-    line-height:1.15;
-    margin:1px 0
-  }
+.span-4{
+grid-column:1/-1
+}
 
-  input,
-  select{
-    height:25px;
-    font-size:9.5px;
-    padding:0 4px;
-    border-radius:5px
-  }
+label{
+font-size:9px;
+line-height:1.15;
+margin:1px 0
+}
 
-  input::placeholder{
-    font-size:8px
-  }
+input,
+select{
+height:25px;
+font-size:9.5px;
+padding:0 4px;
+border-radius:5px
+}
 
-  .total-box{
-    grid-column:span 1;
-    padding:3px 5px;
-    gap:4px;
-    min-height:25px;
-    width:100%
-  }
-
-  .total-box label{
-    font-size:8.5px;
-    white-space:nowrap
-  }
-
-  .total-box input{
-    height:21px;
-    font-size:9.5px;
-    min-width:55px
-  }
-
-  .total-note{
-    font-size:8px;
-    padding:3px 4px
-  }
-
-  .button-row{
-    grid-template-columns:1fr 100px;
-    gap:4px;
-    margin-top:5px
-  }
-
-  button{
-    height:31px;
-    font-size:11px;
-    border-radius:7px
-  }
-
-  .note{
-    font-size:8px;
-    margin:2px 0 0
-  }
-
-  .error,
-  .success{
-    font-size:9px;
-    padding:4px;
-    margin-top:3px
-  }
+input::placeholder{
+font-size:8px
 }
 
 
-/* =========================
-   الشاشات الصغيرة جدًا
-========================= */
+/*
+=========================
+ترتيب بيانات العقار
+=========================
+
+المصاعد + المواقف
+ثم
+الأدوار + الوحدات
+ثم
+إجمالي الوحدات
+*/
+
+
+/* المصاعد */
+
+.elevators-field{
+grid-column:span 1
+}
+
+
+/* المواقف */
+
+.parking-field{
+grid-column:span 2
+}
+
+
+/* الأدوار */
+
+.floors-field{
+grid-column:span 1
+}
+
+
+/* الوحدات لكل طابق */
+
+.units-floor-field{
+grid-column:span 2
+}
+
+
+/* إجمالي الوحدات */
+
+.total-box{
+grid-column:1/-1;
+padding:4px 7px;
+gap:8px;
+min-height:30px;
+width:100%;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.total-box label{
+font-size:9.5px;
+white-space:nowrap;
+margin:0
+}
+
+.total-box input{
+width:105px;
+height:24px;
+font-size:10px;
+flex-shrink:0
+}
+
+.total-note{
+font-size:8px;
+padding:3px 4px
+}
+
+.button-row{
+grid-template-columns:1fr 100px;
+gap:4px;
+margin-top:5px
+}
+
+button{
+height:31px;
+font-size:11px;
+border-radius:7px
+}
+
+.note{
+font-size:8px;
+margin:2px 0 0
+}
+
+.error,
+.success{
+font-size:9px;
+padding:4px;
+margin-top:3px
+}
+
+}
+
+
+/* شاشات صغيرة جدًا */
 
 @media(max-width:380px){
 
-  .card{
-    padding:6px
-  }
+.card{
+padding:6px
+}
 
-  .grid{
-    gap:2px 3px
-  }
+.grid{
+gap:2px 3px
+}
 
-  label{
-    font-size:8.5px
-  }
+label{
+font-size:8.5px
+}
 
-  input,
-  select{
-    height:24px;
-    font-size:9px;
-    padding:0 3px
-  }
+input,
+select{
+height:24px;
+font-size:9px;
+padding:0 3px
+}
 
-  .info-note{
-    font-size:8px
-  }
+.info-note{
+font-size:8px
+}
 
-  h2{
-    font-size:10.5px
-  }
+h2{
+font-size:10.5px
+}
 
-  button{
-    height:30px;
-    font-size:10.5px
-  }
+.total-box label{
+font-size:9px
+}
+
+.total-box input{
+width:95px;
+font-size:9.5px
+}
+
+button{
+height:30px;
+font-size:10.5px
+}
 
 }
 
 </style>
 </head>
+
 
 <body>
 
@@ -429,7 +500,9 @@ button:active{
 
 <header class="header">
 
-<h1 class="title">مكتب عقود إيجار</h1>
+<h1 class="title">
+مكتب عقود إيجار
+</h1>
 
 <a class="phone" href="tel:0536305035">
 0536305035
@@ -448,12 +521,14 @@ button:active{
 
 <form id="form" novalidate>
 
+
 <h2>بيانات العقار</h2>
+
 
 <div class="grid">
 
 
-<!-- رقم الجوال + نوع العقار + الاستخدام -->
+<!-- رقم الجوال -->
 
 <div class="field span-2">
 
@@ -472,6 +547,8 @@ required
 
 </div>
 
+
+<!-- نوع العقار -->
 
 <div class="field">
 
@@ -496,6 +573,8 @@ required
 </div>
 
 
+<!-- استخدام العقار -->
+
 <div class="field">
 
 <label>
@@ -516,12 +595,12 @@ required
 </div>
 
 
-<!--
-الصف العلوي:
-المصاعد والمواقف
--->
+<!-- =====================
+     المصاعد والمواقف
+===================== -->
 
-<div class="field">
+
+<div class="field elevators-field">
 
 <label>
 عدد المصاعد في كامل العقار
@@ -547,7 +626,7 @@ required
 </div>
 
 
-<div class="field span-2">
+<div class="field parking-field">
 
 <label>
 عدد المواقف في كامل العقار
@@ -564,12 +643,12 @@ placeholder="إذا لا يوجد اكتب 0"
 </div>
 
 
-<!--
-الصف الذي كان في الأعلى:
-عدد الأدوار + الوحدات + الإجمالي
--->
+<!-- =====================
+     الأدوار والوحدات
+===================== -->
 
-<div class="field">
+
+<div class="field floors-field">
 
 <label>
 عدد الأدوار في كامل العقار
@@ -587,7 +666,7 @@ required
 </div>
 
 
-<div class="field">
+<div class="field units-floor-field">
 
 <label>
 عدد الوحدات في كل طابق
@@ -603,6 +682,11 @@ required
 >
 
 </div>
+
+
+<!-- =====================
+     إجمالي الوحدات
+===================== -->
 
 
 <div class="field total-box">
@@ -633,8 +717,11 @@ readonly
 
 <h2>بيانات الوحدة</h2>
 
+
 <div class="grid">
 
+
+<!-- اسم الوحدة -->
 
 <div class="field">
 
@@ -650,6 +737,8 @@ required
 
 </div>
 
+
+<!-- نوع الوحدة -->
 
 <div class="field">
 
@@ -689,6 +778,8 @@ required
 </div>
 
 
+<!-- رقم الطابق -->
+
 <div class="field">
 
 <label>
@@ -704,6 +795,8 @@ required
 </div>
 
 
+<!-- المساحة -->
+
 <div class="field">
 
 <label>
@@ -718,6 +811,8 @@ placeholder="متر مربع"
 
 </div>
 
+
+<!-- مؤثثة -->
 
 <div class="field">
 
@@ -755,6 +850,8 @@ placeholder="متر مربع"
 </div>
 
 
+<!-- دواليب المطبخ -->
+
 <div class="field">
 
 <label>
@@ -771,6 +868,8 @@ placeholder="متر مربع"
 
 </div>
 
+
+<!-- غرف النوم -->
 
 <div class="field">
 
@@ -789,6 +888,8 @@ placeholder="إذا لا يوجد اكتب 0"
 </div>
 
 
+<!-- الصالات -->
+
 <div class="field">
 
 <label>
@@ -805,6 +906,8 @@ placeholder="إذا لا يوجد اكتب 0"
 
 </div>
 
+
+<!-- دورات المياه -->
 
 <div class="field">
 
@@ -823,6 +926,8 @@ placeholder="إذا لا يوجد اكتب 0"
 </div>
 
 
+<!-- المطابخ -->
+
 <div class="field">
 
 <label>
@@ -839,6 +944,8 @@ placeholder="إذا لا يوجد اكتب 0"
 
 </div>
 
+
+<!-- المجالس -->
 
 <div class="field">
 
@@ -857,6 +964,8 @@ placeholder="إذا لا يوجد اكتب 0"
 </div>
 
 
+<!-- المخازن -->
+
 <div class="field">
 
 <label>
@@ -873,6 +982,8 @@ placeholder="إذا لا يوجد اكتب 0"
 
 </div>
 
+
+<!-- مكيفات سبلت -->
 
 <div class="field">
 
@@ -891,6 +1002,8 @@ placeholder="إذا لا يوجد اكتب 0"
 </div>
 
 
+<!-- مكيفات شباك -->
+
 <div class="field">
 
 <label>
@@ -908,6 +1021,8 @@ placeholder="إذا لا يوجد اكتب 0"
 </div>
 
 
+<!-- عداد الكهرباء -->
+
 <div class="field">
 
 <label>
@@ -921,6 +1036,8 @@ placeholder="رقم العداد"
 
 </div>
 
+
+<!-- عداد الماء -->
 
 <div class="field">
 
@@ -998,90 +1115,71 @@ const clearBtn=document.getElementById("clearBtn");
 const STORAGE_KEY="ijar_property_form_data";
 
 
-/* حساب إجمالي الوحدات */
+/* حساب الإجمالي */
 
 function updateTotal(){
 
-  const a=parseInt(floors.value,10);
+const a=parseInt(floors.value,10);
 
-  const b=parseInt(unitsPerFloor.value,10);
+const b=parseInt(unitsPerFloor.value,10);
 
-  const total=
-    (
-      Number.isFinite(a) &&
-      a>=0 &&
-      Number.isFinite(b) &&
-      b>=0
-    )
-    ? a*b
-    : 0;
+const total=
+(
+Number.isFinite(a) &&
+a>=0 &&
+Number.isFinite(b) &&
+b>=0
+)
+?a*b
+:0;
 
-  totalUnits.value=total+" وحدة";
+totalUnits.value=total+" وحدة";
+
 }
 
 
-floors.addEventListener("input",function(){
-
-  preventNegative(floors);
-
-  updateTotal();
-
-  saveForm();
-
-});
-
-
-unitsPerFloor.addEventListener("input",function(){
-
-  preventNegative(unitsPerFloor);
-
-  updateTotal();
-
-  saveForm();
-
-});
-
-
-/* منع الأرقام السالبة */
+/* منع السالب */
 
 function preventNegative(input){
 
-  if(
-    input.type==="number" &&
-    input.value!=="" &&
-    Number(input.value)<0
-  ){
+if(
+input.type==="number" &&
+input.value!=="" &&
+Number(input.value)<0
+){
 
-    input.value="0";
+input.value="0";
 
-  }
+}
+
 }
 
 
-/* حفظ البيانات تلقائيًا */
+/* حفظ البيانات */
 
 function saveForm(){
 
-  const data={};
+const data={};
 
-  const fields=form.querySelectorAll("input,select");
+const fields=form.querySelectorAll("input,select");
 
-  fields.forEach(field=>{
+fields.forEach(field=>{
 
-    if(field.id==="totalUnits") return;
+if(field.id==="totalUnits")return;
 
-    if(field.name){
+if(field.name){
 
-      data[field.name]=field.value;
+data[field.name]=field.value;
 
-    }
+}
 
-  });
+});
 
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify(data)
-  );
+localStorage.setItem(
+STORAGE_KEY,
+JSON.stringify(data)
+);
+
 }
 
 
@@ -1089,219 +1187,190 @@ function saveForm(){
 
 function loadForm(){
 
-  try{
+try{
 
-    const saved=localStorage.getItem(STORAGE_KEY);
+const saved=
+localStorage.getItem(STORAGE_KEY);
 
-    if(!saved) return;
+if(!saved)return;
 
-    const data=JSON.parse(saved);
+const data=JSON.parse(saved);
 
-    Object.keys(data).forEach(name=>{
+Object.keys(data).forEach(name=>{
 
-      const field=form.querySelector(
-        `[name="${name}"]`
-      );
+const field=
+form.querySelector(`[name="${name}"]`);
 
-      if(field){
+if(field){
 
-        field.value=data[name];
+field.value=data[name];
 
-      }
+}
 
-    });
+});
 
-    updateTotal();
+updateTotal();
 
-  }catch(error){
+}catch(error){
 
-    console.log("تعذر استرجاع البيانات");
+console.log("تعذر استرجاع البيانات");
 
-  }
+}
 
 }
 
 
-/* حفظ أي تغيير */
+/* تحديث الإجمالي */
+
+floors.addEventListener("input",function(){
+
+preventNegative(floors);
+
+updateTotal();
+
+saveForm();
+
+});
+
+
+unitsPerFloor.addEventListener("input",function(){
+
+preventNegative(unitsPerFloor);
+
+updateTotal();
+
+saveForm();
+
+});
+
+
+/* حفظ التغييرات */
 
 form.addEventListener("input",function(e){
 
-  if(
-    e.target.type==="number"
-  ){
+if(e.target.type==="number"){
 
-    preventNegative(e.target);
+preventNegative(e.target);
 
-  }
+}
 
-  saveForm();
+saveForm();
 
 });
 
 
 form.addEventListener("change",function(){
 
-  saveForm();
+saveForm();
 
 });
 
 
-/* التحقق من الحقول المطلوبة */
+/* التحقق */
 
 function validateRequired(){
 
-  const fields=[
-    ...form.querySelectorAll("[required]")
-  ];
+const fields=[
+...form.querySelectorAll("[required]")
+];
 
-  const missing=fields.filter(el=>{
+const missing=
+fields.filter(el=>
+!String(el.value||"").trim()
+);
 
-    return !String(
-      el.value||""
-    ).trim();
+if(missing.length){
 
-  });
+errorBox.textContent=
+"⚠️ يجب إكمال البيانات المطلوبة لتتمكن من الإرسال";
 
+errorBox.style.display="block";
 
-  if(missing.length){
+successBox.style.display="none";
 
-    errorBox.textContent=
-      "⚠️ يجب إكمال البيانات المطلوبة لتتمكن من الإرسال";
+missing[0].scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
 
-    errorBox.style.display="block";
+setTimeout(function(){
 
-    successBox.style.display="none";
+missing[0].focus();
 
+},400);
 
-    missing[0].scrollIntoView({
+return false;
 
-      behavior:"smooth",
-      block:"center"
+}
 
-    });
+errorBox.style.display="none";
 
-
-    setTimeout(function(){
-
-      missing[0].focus();
-
-    },400);
-
-
-    return false;
-
-  }
-
-
-  errorBox.style.display="none";
-
-  return true;
+return true;
 
 }
 
 
-/* التحقق من رقم الجوال */
-
-function cleanPhone(phone){
-
-  let value=String(phone||"")
-    .replace(/\s+/g,"")
-    .replace(/-/g,"");
-
-
-  if(value.startsWith("+966")){
-
-    value=value.substring(1);
-
-  }
-
-
-  if(value.startsWith("966")){
-
-    return value;
-
-  }
-
-
-  if(value.startsWith("05")){
-
-    return "966"+value.substring(1);
-
-  }
-
-
-  return value;
-
-}
-
-
-/* قراءة قيمة الحقل */
+/* قيمة الحقل */
 
 function getValue(data,key){
 
-  const value=(data.get(key)||"").trim();
+const value=
+(data.get(key)||"").trim();
 
-  return value||"غير متوفر";
+return value||"غير متوفر";
 
 }
 
 
-/* إرسال البيانات */
+/* إرسال واتساب */
 
 form.addEventListener("submit",function(e){
 
-  e.preventDefault();
+e.preventDefault();
+
+if(!validateRequired())return;
 
 
-  if(!validateRequired()){
+const phoneInput=
+form.querySelector('[name="phone"]');
 
-    return;
+const phoneRaw=
+phoneInput.value.trim();
 
-  }
-
-
-  const phoneInput=
-    form.querySelector('[name="phone"]');
-
-
-  const phoneRaw=
-    phoneInput.value.trim();
+const phoneDigits=
+phoneRaw.replace(/\D/g,"");
 
 
-  const phoneDigits=
-    phoneRaw.replace(/\D/g,"");
+const validSaudi=
+/^05\d{8}$/.test(phoneDigits) ||
+/^9665\d{8}$/.test(phoneDigits);
 
 
-  const validSaudi=
-    /^05\d{8}$/.test(phoneDigits) ||
-    /^9665\d{8}$/.test(phoneDigits);
+if(!validSaudi){
+
+errorBox.textContent=
+"⚠️ يرجى إدخال رقم جوال سعودي صحيح";
+
+errorBox.style.display="block";
+
+successBox.style.display="none";
+
+phoneInput.focus();
+
+return;
+
+}
 
 
-  if(!validSaudi){
-
-    errorBox.textContent=
-      "⚠️ يرجى إدخال رقم جوال سعودي صحيح";
-
-    errorBox.style.display="block";
-
-    successBox.style.display="none";
-
-    phoneInput.focus();
-
-    return;
-
-  }
+const d=new FormData(form);
 
 
-  const d=new FormData(form);
+const total=
+(parseInt(floors.value,10)||0) *
+(parseInt(unitsPerFloor.value,10)||0);
 
 
-  const total=
-    (parseInt(floors.value,10)||0) *
-    (parseInt(unitsPerFloor.value,10)||0);
-
-
-  const msg=`*بيانات العقار - مكتب عقود إيجار*
+const msg=`*بيانات العقار - مكتب عقود إيجار*
 
 رقم جوال الي تتواصل معايه: ${getValue(d,"phone")}
 نوع العقار: ${getValue(d,"propertyType")}
@@ -1335,75 +1404,71 @@ form.addEventListener("submit",function(e){
 رقم عداد الماء أن وجد: ${getValue(d,"water")}`;
 
 
-  successBox.textContent=
-    "✓ تم تجهيز البيانات بنجاح، سيتم فتح واتساب لإرسالها.";
+successBox.textContent=
+"✓ تم تجهيز البيانات بنجاح، سيتم فتح واتساب لإرسالها.";
 
-  successBox.style.display="block";
+successBox.style.display="block";
 
-  errorBox.style.display="none";
-
-
-  setTimeout(function(){
-
-    const url=
-      "https://wa.me/"+
-      receiver+
-      "?text="+
-      encodeURIComponent(msg);
+errorBox.style.display="none";
 
 
-    const w=
-      window.open(url,"_blank");
+setTimeout(function(){
 
+const url=
+"https://wa.me/"+
+receiver+
+"?text="+
+encodeURIComponent(msg);
 
-    if(!w){
+const w=
+window.open(url,"_blank");
 
-      window.location.href=url;
+if(!w){
 
-    }
+window.location.href=url;
 
-  },500);
+}
+
+},500);
 
 });
 
 
-/* زر مسح البيانات */
+/* مسح البيانات */
 
 clearBtn.addEventListener("click",function(){
 
-  const confirmed=
-    confirm(
-      "هل أنت متأكد من مسح جميع البيانات التي تم إدخالها؟"
-    );
+const confirmed=
+confirm(
+"هل أنت متأكد من مسح جميع البيانات التي تم إدخالها؟"
+);
+
+if(!confirmed)return;
+
+form.reset();
+
+localStorage.removeItem(STORAGE_KEY);
+
+updateTotal();
+
+errorBox.style.display="none";
+
+successBox.textContent=
+"✓ تم مسح جميع البيانات";
+
+successBox.style.display="block";
 
 
-  if(!confirmed) return;
+setTimeout(function(){
 
+successBox.style.display="none";
 
-  form.reset();
-
-  localStorage.removeItem(STORAGE_KEY);
-
-  updateTotal();
-
-  errorBox.style.display="none";
-
-  successBox.textContent=
-    "✓ تم مسح جميع البيانات";
-
-  successBox.style.display="block";
-
-
-  setTimeout(function(){
-
-    successBox.style.display="none";
-
-  },2000);
+},2000);
 
 });
 
 
-/* تشغيل الصفحة */
+/* تشغيل */
 
 loadForm();
 
