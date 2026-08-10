@@ -92,8 +92,6 @@ h2{
   font-weight:800
 }
 
-/* ===== شبكة الحقول ===== */
-
 .grid{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
@@ -152,8 +150,6 @@ input::placeholder{
   font-size:9.5px
 }
 
-/* ===== إجمالي الوحدات ===== */
-
 .total-box{
   padding:4px 6px;
   border:1px solid #dce8e1;
@@ -192,8 +188,6 @@ input::placeholder{
   line-height:1.4;
   text-align:center
 }
-
-/* ===== الأزرار ===== */
 
 .button-row{
   display:grid;
@@ -257,7 +251,10 @@ button:active{
 }
 
 
-/* ===== الجوال: 3 حقول في الصف ===== */
+/* =========================
+   الجوال
+   3 حقول في الصف
+========================= */
 
 @media(max-width:768px){
 
@@ -299,7 +296,6 @@ button:active{
     margin:3px 0 2px
   }
 
-  /* 3 أعمدة */
   .grid{
     grid-template-columns:repeat(3,minmax(0,1fr));
     gap:3px 4px
@@ -333,18 +329,22 @@ button:active{
   }
 
   .total-box{
-    padding:3px 4px;
-    gap:3px;
-    min-height:25px
+    grid-column:span 1;
+    padding:3px 5px;
+    gap:4px;
+    min-height:25px;
+    width:100%
   }
 
   .total-box label{
-    font-size:8.5px
+    font-size:8.5px;
+    white-space:nowrap
   }
 
   .total-box input{
     height:21px;
-    font-size:9.5px
+    font-size:9.5px;
+    min-width:55px
   }
 
   .total-note{
@@ -378,7 +378,9 @@ button:active{
 }
 
 
-/* ===== الشاشات الصغيرة جدًا ===== */
+/* =========================
+   الشاشات الصغيرة جدًا
+========================= */
 
 @media(max-width:380px){
 
@@ -451,6 +453,8 @@ button:active{
 <div class="grid">
 
 
+<!-- رقم الجوال + نوع العقار + الاستخدام -->
+
 <div class="field span-2">
 
 <label>
@@ -512,6 +516,59 @@ required
 </div>
 
 
+<!--
+الصف العلوي:
+المصاعد والمواقف
+-->
+
+<div class="field">
+
+<label>
+عدد المصاعد في كامل العقار
+</label>
+
+<select name="elevators">
+
+<option value="">اختر</option>
+<option>لا يوجد</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<option>9</option>
+<option>10</option>
+
+</select>
+
+</div>
+
+
+<div class="field span-2">
+
+<label>
+عدد المواقف في كامل العقار
+</label>
+
+<input
+name="parking"
+type="number"
+min="0"
+inputmode="numeric"
+placeholder="إذا لا يوجد اكتب 0"
+>
+
+</div>
+
+
+<!--
+الصف الذي كان في الأعلى:
+عدد الأدوار + الوحدات + الإجمالي
+-->
+
 <div class="field">
 
 <label>
@@ -567,49 +624,6 @@ readonly
 <div class="total-note">
 
 هذا الإجمالي سيظهر في صورة العقد حسب نظام منصة إيجار، ولا نستطيع تعديل طريقة عرض أو احتساب الإجمالي من داخل المنصة.
-
-</div>
-
-
-<div class="field">
-
-<label>
-عدد المصاعد في كامل العقار
-</label>
-
-<select name="elevators">
-
-<option value="">اختر</option>
-<option>لا يوجد</option>
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-<option value="5">5</option>
-<option value="6">6</option>
-<option value="7">7</option>
-<option value="8">8</option>
-<option value="9">9</option>
-<option value="10">10</option>
-
-</select>
-
-</div>
-
-
-<div class="field">
-
-<label>
-عدد المواقف في كامل العقار
-</label>
-
-<input
-name="parking"
-type="number"
-min="0"
-inputmode="numeric"
-placeholder="إذا لا يوجد اكتب 0"
->
 
 </div>
 
@@ -716,7 +730,25 @@ placeholder="متر مربع"
 <option value="">اختر</option>
 <option>نعم</option>
 <option>لا</option>
-<option>غير متوفر</option>
+
+</select>
+
+</div>
+
+
+<!-- الميزانين -->
+
+<div class="field">
+
+<label>
+هل يوجد ميزانين؟
+</label>
+
+<select name="mezzanine">
+
+<option value="">اختر</option>
+<option>نعم</option>
+<option>لا</option>
 
 </select>
 
@@ -734,7 +766,6 @@ placeholder="متر مربع"
 <option value="">اختر</option>
 <option>نعم</option>
 <option>لا</option>
-<option>غير متوفر</option>
 
 </select>
 
@@ -1275,11 +1306,13 @@ form.addEventListener("submit",function(e){
 رقم جوال الي تتواصل معايه: ${getValue(d,"phone")}
 نوع العقار: ${getValue(d,"propertyType")}
 استخدام العقار: ${getValue(d,"usage")}
+
+عدد المصاعد في كامل العقار: ${getValue(d,"elevators")}
+عدد المواقف في كامل العقار: ${getValue(d,"parking")}
+
 عدد الأدوار في كامل العقار: ${getValue(d,"floors")}
 عدد الوحدات في كل طابق: ${getValue(d,"unitsPerFloor")}
 *إجمالي وحدات العقار: ${total} وحدة*
-عدد المصاعد في كامل العقار: ${getValue(d,"elevators")}
-عدد المواقف في كامل العقار: ${getValue(d,"parking")}
 
 *بيانات الوحدة*
 
@@ -1288,6 +1321,7 @@ form.addEventListener("submit",function(e){
 رقم الطابق: ${getValue(d,"floor")}
 مساحة الوحدة: ${getValue(d,"area")}
 الوحدة مؤثثة؟ ${getValue(d,"furnished")}
+هل يوجد ميزانين؟ ${getValue(d,"mezzanine")}
 هل يوجد دواليب مطبخ؟ ${getValue(d,"kitchenCabinets")}
 عدد غرف النوم: ${getValue(d,"bedrooms")}
 عدد الصالات: ${getValue(d,"livingRooms")}
