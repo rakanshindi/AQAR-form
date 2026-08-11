@@ -1,14 +1,23 @@
+```html
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1,viewport-fit=cover">
+
 <meta name="theme-color" content="#0f172a">
 
 <title>مكتب عقود إيجار | بيانات العقار</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+box-sizing:border-box
+}
 
 html,body{
 height:100%;
@@ -131,6 +140,21 @@ outline:2px solid #d8eee2;
 border-color:#16804f
 }
 
+/* نوع العقد */
+
+.contract-type-box{
+margin-bottom:5px;
+padding:6px 8px;
+border:1px solid #dce8e1;
+border-radius:8px;
+background:#f8fbf9
+}
+
+.contract-type-box label{
+font-size:10px;
+margin-bottom:3px
+}
+
 /* إجمالي الوحدات */
 
 .total-box{
@@ -171,6 +195,68 @@ color:#64748b;
 font-size:9px;
 line-height:1.4;
 text-align:center
+}
+
+/* الوحدات */
+
+.unit-box{
+border:1px solid #dce8e1;
+border-radius:9px;
+padding:7px;
+margin-bottom:7px;
+background:#fbfdfc
+}
+
+.unit-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:6px;
+margin-bottom:4px;
+padding-bottom:4px;
+border-bottom:1px solid #e1e8e4;
+color:#087443;
+font-size:11px
+}
+
+.delete-unit-btn{
+width:auto;
+height:25px;
+padding:0 9px;
+background:#dc2626;
+color:#fff;
+border:0;
+border-radius:6px;
+font-size:10px;
+font-weight:700;
+cursor:pointer
+}
+
+.units-actions{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:8px;
+margin-top:5px;
+margin-bottom:5px
+}
+
+.add-unit-btn{
+height:32px;
+background:#16804f;
+color:#fff;
+border:0;
+border-radius:7px;
+font-size:11px;
+font-weight:800;
+cursor:pointer;
+padding:0 14px
+}
+
+#unitsCount{
+color:#64748b;
+font-size:9px;
+font-weight:700
 }
 
 .button-row{
@@ -222,7 +308,6 @@ font-size:10px;
 font-weight:700;
 text-align:center
 }
-
 
 /* الجوال */
 
@@ -277,8 +362,6 @@ font-size:9.5px;
 padding:0 4px
 }
 
-/* الجوال */
-
 .phone-field{
 grid-column:1/-1
 }
@@ -316,6 +399,26 @@ min-height:30px
 font-size:8px
 }
 
+.unit-box{
+padding:5px;
+margin-bottom:5px
+}
+
+.unit-header{
+font-size:10px
+}
+
+.delete-unit-btn{
+height:24px;
+font-size:9px;
+padding:0 7px
+}
+
+.add-unit-btn{
+height:30px;
+font-size:10px
+}
+
 .button-row{
 grid-template-columns:1fr 1fr;
 gap:4px;
@@ -332,9 +435,6 @@ font-size:8px
 }
 
 }
-
-
-/* شاشات صغيرة */
 
 @media(max-width:380px){
 
@@ -365,19 +465,23 @@ font-size:10.5px
 }
 
 }
+
 </style>
+
 </head>
 
 <body>
 
 <div class="wrap">
+
 <div class="card">
 
 <header class="header">
 
 <h1 class="title">مكتب عقود إيجار</h1>
 
-<a class="phone" href="tel:0536305035">
+<a class="phone"
+href="tel:0536305035">
 0536305035
 </a>
 
@@ -386,7 +490,9 @@ font-size:10.5px
 </p>
 
 <div class="info-note">
+
 البيانات الموجودة في هذا النموذج مطابقة للبيانات المتاحة في منصة إيجار، ولا يمكننا إضافة أي خانة أو بند إضافي أو أي تفاصيل غير موجودة ضمن بيانات المنصة.
+
 </div>
 
 </header>
@@ -394,9 +500,43 @@ font-size:10.5px
 
 <form id="form" novalidate>
 
+
+<!-- نوع العقد -->
+
+<h2>نوع العقد</h2>
+
+<div class="contract-type-box">
+
+<label>
+تحديد نوع العقد
+<span class="req">*</span>
+</label>
+
+<select
+name="contractType"
+id="contractType"
+required
+>
+
+<option value="">اختر نوع العقد</option>
+
+<option value="سكني">سكني</option>
+
+<option value="تجاري">تجاري</option>
+
+<option value="زراعي">زراعي</option>
+
+</select>
+
+</div>
+
+
+<!-- بيانات العقار -->
+
 <h2>بيانات العقار</h2>
 
 <div class="grid">
+
 
 <!-- الجوال -->
 
@@ -430,6 +570,7 @@ required
 <select name="propertyType" required>
 
 <option value="">اختر</option>
+
 <option>عمارة</option>
 <option>فيلا</option>
 <option>مجمع تجاري (بلازا)</option>
@@ -455,6 +596,7 @@ required
 <select name="usage" required>
 
 <option value="">اختر</option>
+
 <option>سكني عائلات</option>
 <option>سكني - تجاري</option>
 <option>تجاري</option>
@@ -579,7 +721,28 @@ readonly
 </div>
 
 
+<!-- بيانات الوحدات -->
+
 <h2>بيانات الوحدة</h2>
+
+<div id="unitsContainer">
+
+
+<!-- الوحدة الأولى -->
+
+<div
+class="unit-box"
+data-unit="1"
+>
+
+<div class="unit-header">
+
+<strong>
+الوحدة 1
+</strong>
+
+</div>
+
 
 <div class="grid">
 
@@ -591,7 +754,10 @@ readonly
 <span class="req">*</span>
 </label>
 
-<input name="unitName" required>
+<input
+name="unitName[]"
+required
+>
 
 </div>
 
@@ -603,9 +769,16 @@ readonly
 <span class="req">*</span>
 </label>
 
-<select name="unitType" required>
+<select
+name="unitType[]"
+class="unit-type"
+required
+>
 
-<option value="">اختر</option>
+<option value="">
+اختر
+</option>
+
 <option>شقة</option>
 <option>فيلا</option>
 <option>محل</option>
@@ -641,7 +814,10 @@ readonly
 <span class="req">*</span>
 </label>
 
-<input name="floor" required>
+<input
+name="floor[]"
+required
+>
 
 </div>
 
@@ -653,7 +829,7 @@ readonly
 </label>
 
 <input
-name="area"
+name="area[]"
 inputmode="decimal"
 placeholder="متر مربع"
 >
@@ -667,9 +843,12 @@ placeholder="متر مربع"
 الوحدة مؤثثة؟
 </label>
 
-<select name="furnished">
+<select name="furnished[]">
 
-<option value="">اختر</option>
+<option value="">
+اختر
+</option>
+
 <option>نعم</option>
 <option>لا</option>
 
@@ -684,9 +863,12 @@ placeholder="متر مربع"
 هل يوجد ميزانين؟
 </label>
 
-<select name="mezzanine">
+<select name="mezzanine[]">
 
-<option value="">اختر</option>
+<option value="">
+اختر
+</option>
+
 <option>نعم</option>
 <option>لا</option>
 
@@ -701,9 +883,12 @@ placeholder="متر مربع"
 هل يوجد دواليب مطبخ؟
 </label>
 
-<select name="kitchenCabinets">
+<select name="kitchenCabinets[]">
 
-<option value="">اختر</option>
+<option value="">
+اختر
+</option>
+
 <option>نعم</option>
 <option>لا</option>
 
@@ -718,7 +903,11 @@ placeholder="متر مربع"
 عدد غرف النوم
 </label>
 
-<input name="bedrooms" type="number" min="0">
+<input
+name="bedrooms[]"
+type="number"
+min="0"
+>
 
 </div>
 
@@ -729,7 +918,11 @@ placeholder="متر مربع"
 عدد الصالات
 </label>
 
-<input name="livingRooms" type="number" min="0">
+<input
+name="livingRooms[]"
+type="number"
+min="0"
+>
 
 </div>
 
@@ -740,7 +933,11 @@ placeholder="متر مربع"
 عدد دورات المياه
 </label>
 
-<input name="bathrooms" type="number" min="0">
+<input
+name="bathrooms[]"
+type="number"
+min="0"
+>
 
 </div>
 
@@ -751,7 +948,11 @@ placeholder="متر مربع"
 عدد المطابخ
 </label>
 
-<input name="kitchens" type="number" min="0">
+<input
+name="kitchens[]"
+type="number"
+min="0"
+>
 
 </div>
 
@@ -762,7 +963,11 @@ placeholder="متر مربع"
 عدد المجالس
 </label>
 
-<input name="majlis" type="number" min="0">
+<input
+name="majlis[]"
+type="number"
+min="0"
+>
 
 </div>
 
@@ -773,7 +978,11 @@ placeholder="متر مربع"
 عدد المخازن
 </label>
 
-<input name="storage" type="number" min="0">
+<input
+name="storage[]"
+type="number"
+min="0"
+>
 
 </div>
 
@@ -784,7 +993,11 @@ placeholder="متر مربع"
 عدد مكيات سبلت
 </label>
 
-<input name="splitAC" type="number" min="0">
+<input
+name="splitAC[]"
+type="number"
+min="0"
+>
 
 </div>
 
@@ -795,7 +1008,11 @@ placeholder="متر مربع"
 عدد مكيفات شباك
 </label>
 
-<input name="windowAC" type="number" min="0">
+<input
+name="windowAC[]"
+type="number"
+min="0"
+>
 
 </div>
 
@@ -803,11 +1020,11 @@ placeholder="متر مربع"
 <div class="field">
 
 <label>
-رقم عداد الكهرباء أن وجد
+رقم عداد الكهرباء إن وجد
 </label>
 
 <input
-name="electricity"
+name="electricity[]"
 placeholder="رقم العداد"
 >
 
@@ -817,15 +1034,39 @@ placeholder="رقم العداد"
 <div class="field">
 
 <label>
-رقم عداد الماء أن وجد
+رقم عداد الماء إن وجد
 </label>
 
 <input
-name="water"
+name="water[]"
 placeholder="رقم العداد"
 >
 
 </div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- زر إضافة وحدة -->
+
+<div class="units-actions">
+
+<button
+type="button"
+id="addUnitBtn"
+class="add-unit-btn"
+>
+إضافة وحدة أخرى في نفس العقد
+</button>
+
+<span id="unitsCount">
+1 / 50 وحدة
+</span>
 
 </div>
 
@@ -853,17 +1094,22 @@ id="saveImageBtn"
 
 
 <p class="note">
+
 بعد الضغط على حفظ الصورة سيتم تجهيز صورة للطلب وحفظها على جهازك.
+
 </p>
 
 
 <div id="error" class="error">
+
 ⚠️ يجب إكمال البيانات المطلوبة لتتمكن من الإرسال
+
 </div>
 
 </form>
 
 </div>
+
 </div>
 
 
@@ -883,8 +1129,20 @@ const errorBox=document.getElementById("error");
 
 const saveImageBtn=document.getElementById("saveImageBtn");
 
+const contractType=document.getElementById("contractType");
 
-/* حساب إجمالي الوحدات */
+const unitsContainer=document.getElementById("unitsContainer");
+
+const addUnitBtn=document.getElementById("addUnitBtn");
+
+const unitsCount=document.getElementById("unitsCount");
+
+const MAX_UNITS=50;
+
+
+/* ==========================
+   حساب إجمالي الوحدات
+========================== */
 
 function updateTotal(){
 
@@ -907,7 +1165,9 @@ totalUnits.value=total+" وحدة";
 }
 
 
-/* منع الأرقام السالبة */
+/* ==========================
+   منع الأرقام السالبة
+========================== */
 
 function preventNegative(input){
 
@@ -956,7 +1216,259 @@ preventNegative(e.target);
 updateTotal();
 
 
-/* التحقق */
+/* ==========================
+   أنواع الوحدات حسب نوع العقد
+========================== */
+
+const residentialHiddenTypes=[
+
+"محل",
+"صراف",
+"مول",
+"كشك",
+"ورشة",
+"أرض",
+"بلازا",
+"معرض",
+"مستودع",
+"مكتب",
+"محطة"
+
+];
+
+
+function updateUnitTypes(){
+
+const type=contractType.value;
+
+const selects=
+document.querySelectorAll(".unit-type");
+
+selects.forEach(function(select){
+
+const currentValue=select.value;
+
+Array.from(select.options).forEach(function(option){
+
+if(!option.value){
+
+return;
+
+}
+
+if(
+type==="سكني" &&
+residentialHiddenTypes.includes(option.value)
+){
+
+option.hidden=true;
+
+}else{
+
+option.hidden=false;
+
+}
+
+});
+
+
+if(
+type==="سكني" &&
+residentialHiddenTypes.includes(currentValue)
+){
+
+select.value="";
+
+}
+
+});
+
+}
+
+
+contractType.addEventListener(
+"change",
+updateUnitTypes
+);
+
+
+/* ==========================
+   تحديث عداد الوحدات
+========================== */
+
+function updateUnitsCount(){
+
+const count=
+unitsContainer.querySelectorAll(".unit-box").length;
+
+unitsCount.textContent=
+count+" / "+MAX_UNITS+" وحدة";
+
+
+if(count>=MAX_UNITS){
+
+addUnitBtn.disabled=true;
+
+addUnitBtn.textContent=
+"تم الوصول إلى 50 وحدة";
+
+addUnitBtn.style.opacity="0.6";
+
+addUnitBtn.style.cursor="not-allowed";
+
+}else{
+
+addUnitBtn.disabled=false;
+
+addUnitBtn.textContent=
+"إضافة وحدة أخرى في نفس العقد";
+
+addUnitBtn.style.opacity="1";
+
+addUnitBtn.style.cursor="pointer";
+
+}
+
+}
+
+
+/* ==========================
+   إعادة ترقيم الوحدات
+========================== */
+
+function renumberUnits(){
+
+const units=
+unitsContainer.querySelectorAll(".unit-box");
+
+units.forEach(function(unit,index){
+
+const number=index+1;
+
+unit.dataset.unit=number;
+
+const title=
+unit.querySelector(".unit-header strong");
+
+title.textContent=
+"الوحدة "+number;
+
+});
+
+}
+
+
+/* ==========================
+   إضافة وحدة
+========================== */
+
+addUnitBtn.addEventListener("click",function(){
+
+const currentUnits=
+unitsContainer.querySelectorAll(".unit-box").length;
+
+if(currentUnits>=MAX_UNITS){
+
+return;
+
+}
+
+
+const newNumber=
+currentUnits+1;
+
+
+const firstUnit=
+unitsContainer.querySelector(".unit-box");
+
+
+const newUnit=
+firstUnit.cloneNode(true);
+
+
+newUnit.dataset.unit=
+newNumber;
+
+
+/* عنوان الوحدة */
+
+const title=
+newUnit.querySelector(".unit-header strong");
+
+title.textContent=
+"الوحدة "+newNumber;
+
+
+/* تفريغ البيانات */
+
+newUnit
+.querySelectorAll("input,select")
+.forEach(function(field){
+
+field.value="";
+
+});
+
+
+/* إزالة required من الوحدة الجديدة */
+
+newUnit
+.querySelectorAll("[required]")
+.forEach(function(field){
+
+field.removeAttribute("required");
+
+});
+
+
+/* إضافة زر الحذف */
+
+const header=
+newUnit.querySelector(".unit-header");
+
+
+const deleteBtn=
+document.createElement("button");
+
+
+deleteBtn.type="button";
+
+deleteBtn.className=
+"delete-unit-btn";
+
+deleteBtn.textContent=
+"حذف الوحدة";
+
+
+deleteBtn.addEventListener("click",function(){
+
+newUnit.remove();
+
+renumberUnits();
+
+updateUnitsCount();
+
+});
+
+
+header.appendChild(deleteBtn);
+
+
+unitsContainer.appendChild(newUnit);
+
+
+/* تطبيق نوع العقد الحالي */
+
+updateUnitTypes();
+
+updateUnitsCount();
+
+});
+
+
+/* ==========================
+   التحقق
+========================== */
 
 function validateRequired(){
 
@@ -964,10 +1476,12 @@ const fields=[
 ...form.querySelectorAll("[required]")
 ];
 
+
 const missing=
 fields.filter(el=>
 !String(el.value||"").trim()
 );
+
 
 if(missing.length){
 
@@ -976,16 +1490,21 @@ errorBox.textContent=
 
 errorBox.style.display="block";
 
+
 missing[0].scrollIntoView({
+
 behavior:"smooth",
 block:"center"
+
 });
+
 
 missing[0].focus();
 
 return false;
 
 }
+
 
 errorBox.style.display="none";
 
@@ -994,7 +1513,9 @@ return true;
 }
 
 
-/* قراءة البيانات */
+/* ==========================
+   قراءة البيانات
+========================== */
 
 function getValue(data,key){
 
@@ -1006,17 +1527,23 @@ return value||"غير متوفر";
 }
 
 
-/* إنشاء نص الطلب */
+/* ==========================
+   إنشاء نص الطلب
+========================== */
 
 function getMessage(){
 
 const d=new FormData(form);
 
+
 const total=
-(parseInt(floors.value,10)||0) *
+(parseInt(floors.value,10)||0)*
 (parseInt(unitsPerFloor.value,10)||0);
 
-return `بيانات العقار - مكتب عقود إيجار
+
+let message=`بيانات العقار - مكتب عقود إيجار
+
+نوع العقد: ${getValue(d,"contractType")}
 
 رقم جوال الي تتواصل معايه: ${getValue(d,"phone")}
 نوع العقار: ${getValue(d,"propertyType")}
@@ -1029,42 +1556,86 @@ return `بيانات العقار - مكتب عقود إيجار
 عدد الوحدات في كل طابق: ${getValue(d,"unitsPerFloor")}
 إجمالي وحدات العقار: ${total} وحدة
 
-بيانات الوحدة
+`;
 
-رقم/اسم الوحدة: ${getValue(d,"unitName")}
-نوع الوحدة: ${getValue(d,"unitType")}
-رقم الطابق: ${getValue(d,"floor")}
-مساحة الوحدة: ${getValue(d,"area")}
-الوحدة مؤثثة؟ ${getValue(d,"furnished")}
-هل يوجد ميزانين؟ ${getValue(d,"mezzanine")}
-هل يوجد دواليب مطبخ؟ ${getValue(d,"kitchenCabinets")}
-عدد غرف النوم: ${getValue(d,"bedrooms")}
-عدد الصالات: ${getValue(d,"livingRooms")}
-عدد دورات المياه: ${getValue(d,"bathrooms")}
-عدد المطابخ: ${getValue(d,"kitchens")}
-عدد المجالس: ${getValue(d,"majlis")}
-عدد المخازن: ${getValue(d,"storage")}
-عدد مكيات سبلت: ${getValue(d,"splitAC")}
-عدد مكيفات شباك: ${getValue(d,"windowAC")}
-رقم عداد الكهرباء أن وجد: ${getValue(d,"electricity")}
-رقم عداد الماء أن وجد: ${getValue(d,"water")}`;
+
+const units=
+document.querySelectorAll(".unit-box");
+
+
+units.forEach(function(unit,index){
+
+function getUnitValue(name){
+
+const input=
+unit.querySelector(`[name="${name}[]"]`);
+
+if(!input){
+
+return "غير متوفر";
+
+}
+
+return String(input.value||"").trim()
+||"غير متوفر";
 
 }
 
 
-/* إرسال واتساب */
+message+=`--------------------
+بيانات الوحدة ${index+1}
+
+رقم/اسم الوحدة: ${getUnitValue("unitName")}
+نوع الوحدة: ${getUnitValue("unitType")}
+رقم الطابق: ${getUnitValue("floor")}
+مساحة الوحدة: ${getUnitValue("area")}
+الوحدة مؤثثة؟ ${getUnitValue("furnished")}
+هل يوجد ميزانين؟ ${getUnitValue("mezzanine")}
+هل يوجد دواليب مطبخ؟ ${getUnitValue("kitchenCabinets")}
+عدد غرف النوم: ${getUnitValue("bedrooms")}
+عدد الصالات: ${getUnitValue("livingRooms")}
+عدد دورات المياه: ${getUnitValue("bathrooms")}
+عدد المطابخ: ${getUnitValue("kitchens")}
+عدد المجالس: ${getUnitValue("majlis")}
+عدد المخازن: ${getUnitValue("storage")}
+عدد مكيات سبلت: ${getUnitValue("splitAC")}
+عدد مكيفات شباك: ${getUnitValue("windowAC")}
+رقم عداد الكهرباء إن وجد: ${getUnitValue("electricity")}
+رقم عداد الماء إن وجد: ${getUnitValue("water")}
+
+`;
+
+});
+
+
+return message;
+
+}
+
+
+/* ==========================
+   إرسال واتساب
+========================== */
 
 form.addEventListener("submit",function(e){
 
 e.preventDefault();
 
-if(!validateRequired())return;
+
+if(!validateRequired()){
+
+return;
+
+}
+
 
 const phone=
 form.querySelector('[name="phone"]').value.trim();
 
+
 const digits=
 phone.replace(/\D/g,"");
+
 
 if(
 !/^05\d{8}$/.test(digits) &&
@@ -1080,7 +1651,10 @@ return;
 
 }
 
-const msg=getMessage();
+
+const msg=
+getMessage();
+
 
 const url=
 "https://wa.me/"+
@@ -1088,8 +1662,10 @@ receiver+
 "?text="+
 encodeURIComponent(msg);
 
+
 const w=
 window.open(url,"_blank");
+
 
 if(!w){
 
@@ -1104,16 +1680,26 @@ window.location.href=url;
    حفظ الطلب كصورة
 ========================== */
 
-saveImageBtn.addEventListener("click",async function(){
+saveImageBtn.addEventListener(
+"click",
+async function(){
 
-if(!validateRequired())return;
+if(!validateRequired()){
+
+return;
+
+}
 
 
 /* إنشاء مساحة الصورة */
 
-const canvas=document.createElement("canvas");
+const canvas=
+document.createElement("canvas");
 
-const ctx=canvas.getContext("2d");
+
+const ctx=
+canvas.getContext("2d");
+
 
 const width=1000;
 
@@ -1121,9 +1707,12 @@ const padding=60;
 
 const lineHeight=40;
 
-const message=getMessage();
+const message=
+getMessage();
 
-const lines=message.split("\n");
+
+const lines=
+message.split("\n");
 
 
 const height=
@@ -1136,6 +1725,7 @@ padding*2+
 
 
 canvas.width=width;
+
 canvas.height=height;
 
 
@@ -1176,6 +1766,7 @@ ctx.direction="rtl";
 ctx.font=
 "bold 32px Arial";
 
+
 ctx.fillText(
 "مكتب عقود إيجار",
 width/2,
@@ -1197,11 +1788,13 @@ ctx.fillStyle="#17202a";
 
 let y=125;
 
+
 for(const line of lines){
 
 if(
 line.includes("بيانات العقار") ||
-line.includes("بيانات الوحدة")
+line.includes("بيانات الوحدة") ||
+line.includes("نوع العقد")
 ){
 
 ctx.fillStyle="#087443";
@@ -1218,11 +1811,13 @@ ctx.font=
 
 }
 
+
 ctx.fillText(
 line,
 width-padding,
 y
 );
+
 
 y+=lineHeight;
 
@@ -1231,9 +1826,14 @@ y+=lineHeight;
 
 /* تحويل الصورة */
 
-canvas.toBlob(async function(blob){
+canvas.toBlob(
+async function(blob){
 
-if(!blob)return;
+if(!blob){
+
+return;
+
+}
 
 
 /*
@@ -1257,23 +1857,28 @@ type:"image/png"
 if(
 navigator.share &&
 navigator.canShare &&
-navigator.canShare({files:[file]})
+navigator.canShare({
+files:[file]
+})
 ){
 
 try{
 
 await navigator.share({
+
 files:[file],
+
 title:"طلب عقد إيجار"
+
 });
 
 return;
 
 }catch(error){
 
-/* المستخدم أغلق نافذة المشاركة */
-
-if(error.name==="AbortError"){
+if(
+error.name==="AbortError"
+){
 
 return;
 
@@ -1289,29 +1894,51 @@ return;
 const url=
 URL.createObjectURL(blob);
 
+
 const link=
 document.createElement("a");
 
+
 link.href=url;
 
-link.download="طلب-عقد-إيجار.png";
+link.download=
+"طلب-عقد-إيجار.png";
+
 
 document.body.appendChild(link);
 
+
 link.click();
+
 
 link.remove();
 
-setTimeout(function(){
+
+setTimeout(
+function(){
 
 URL.revokeObjectURL(url);
 
-},1000);
+},
+1000
+);
 
-},"image/png");
+},
+"image/png"
+);
 
 });
+
+
+/* تشغيل أولي */
+
+updateUnitsCount();
+
+updateUnitTypes();
+
 </script>
 
 </body>
+
 </html>
+```
