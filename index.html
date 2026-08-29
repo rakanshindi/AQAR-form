@@ -1,4 +1,3 @@
-```html
 <!doctype html>
 <html lang="ar" dir="rtl">
 
@@ -138,6 +137,12 @@ min-width:0
 input:focus,select:focus{
 outline:2px solid #d8eee2;
 border-color:#16804f
+}
+
+/* إخفاء العنصر العلوي مع بقاء وظيفته */
+
+.info-note{
+display:none
 }
 
 /* نوع العقد */
@@ -358,7 +363,7 @@ line-height:1.15
 
 input,select{
 height:25px;
-font-size:9.5px;
+font-size:16px;
 padding:0 4px
 }
 
@@ -452,7 +457,7 @@ font-size:8.5px
 
 input,select{
 height:24px;
-font-size:9px
+font-size:16px
 }
 
 .total-box input{
@@ -1522,7 +1527,25 @@ function getValue(data,key){
 const value=
 (data.get(key)||"").trim();
 
-return value||"غير متوفر";
+return value||"";
+
+}
+
+
+/* ==========================
+   إضافة سطر للرسالة إذا كانت الخانة ممتلئة
+========================== */
+
+function addMessageLine(lines,label,value){
+
+const cleanValue=
+String(value||"").trim();
+
+if(cleanValue){
+
+lines.push(label+": "+cleanValue);
+
+}
 
 }
 
@@ -1541,22 +1564,64 @@ const total=
 (parseInt(unitsPerFloor.value,10)||0);
 
 
-let message=`بيانات العقار - مكتب عقود إيجار
+let lines=[];
 
-نوع العقد: ${getValue(d,"contractType")}
 
-رقم جوال الي تتواصل معايه: ${getValue(d,"phone")}
-نوع العقار: ${getValue(d,"propertyType")}
-استخدام العقار: ${getValue(d,"usage")}
+lines.push("بيانات العقار - مكتب عقود إيجار");
 
-عدد المصاعد في كامل العقار: ${getValue(d,"elevators")}
-عدد المواقف في كامل العقار: ${getValue(d,"parking")}
+addMessageLine(
+lines,
+"نوع العقد",
+getValue(d,"contractType")
+);
 
-عدد الأدوار في كامل العقار: ${getValue(d,"floors")}
-عدد الوحدات في كل طابق: ${getValue(d,"unitsPerFloor")}
-إجمالي وحدات العقار: ${total} وحدة
+addMessageLine(
+lines,
+"رقم جوال الي تتواصل معايه",
+getValue(d,"phone")
+);
 
-`;
+addMessageLine(
+lines,
+"نوع العقار",
+getValue(d,"propertyType")
+);
+
+addMessageLine(
+lines,
+"استخدام العقار",
+getValue(d,"usage")
+);
+
+addMessageLine(
+lines,
+"عدد المصاعد في كامل العقار",
+getValue(d,"elevators")
+);
+
+addMessageLine(
+lines,
+"عدد المواقف في كامل العقار",
+getValue(d,"parking")
+);
+
+addMessageLine(
+lines,
+"عدد الأدوار في كامل العقار",
+getValue(d,"floors")
+);
+
+addMessageLine(
+lines,
+"عدد الوحدات في كل طابق",
+getValue(d,"unitsPerFloor")
+);
+
+addMessageLine(
+lines,
+"إجمالي وحدات العقار",
+total+" وحدة"
+);
 
 
 const units=
@@ -1565,6 +1630,9 @@ document.querySelectorAll(".unit-box");
 
 units.forEach(function(unit,index){
 
+let unitLines=[];
+
+
 function getUnitValue(name){
 
 const input=
@@ -1572,43 +1640,133 @@ unit.querySelector(`[name="${name}[]"]`);
 
 if(!input){
 
-return "غير متوفر";
+return "";
 
 }
 
-return String(input.value||"").trim()
-||"غير متوفر";
+return String(input.value||"").trim();
 
 }
 
 
-message+=`--------------------
-بيانات الوحدة ${index+1}
+addMessageLine(
+unitLines,
+"رقم/اسم الوحدة",
+getUnitValue("unitName")
+);
 
-رقم/اسم الوحدة: ${getUnitValue("unitName")}
-نوع الوحدة: ${getUnitValue("unitType")}
-رقم الطابق: ${getUnitValue("floor")}
-مساحة الوحدة: ${getUnitValue("area")}
-الوحدة مؤثثة؟ ${getUnitValue("furnished")}
-هل يوجد ميزانين؟ ${getUnitValue("mezzanine")}
-هل يوجد دواليب مطبخ؟ ${getUnitValue("kitchenCabinets")}
-عدد غرف النوم: ${getUnitValue("bedrooms")}
-عدد الصالات: ${getUnitValue("livingRooms")}
-عدد دورات المياه: ${getUnitValue("bathrooms")}
-عدد المطابخ: ${getUnitValue("kitchens")}
-عدد المجالس: ${getUnitValue("majlis")}
-عدد المخازن: ${getUnitValue("storage")}
-عدد مكيات سبلت: ${getUnitValue("splitAC")}
-عدد مكيفات شباك: ${getUnitValue("windowAC")}
-رقم عداد الكهرباء إن وجد: ${getUnitValue("electricity")}
-رقم عداد الماء إن وجد: ${getUnitValue("water")}
+addMessageLine(
+unitLines,
+"نوع الوحدة",
+getUnitValue("unitType")
+);
 
-`;
+addMessageLine(
+unitLines,
+"رقم الطابق",
+getUnitValue("floor")
+);
+
+addMessageLine(
+unitLines,
+"مساحة الوحدة",
+getUnitValue("area")
+);
+
+addMessageLine(
+unitLines,
+"الوحدة مؤثثة؟",
+getUnitValue("furnished")
+);
+
+addMessageLine(
+unitLines,
+"هل يوجد ميزانين؟",
+getUnitValue("mezzanine")
+);
+
+addMessageLine(
+unitLines,
+"هل يوجد دواليب مطبخ؟",
+getUnitValue("kitchenCabinets")
+);
+
+addMessageLine(
+unitLines,
+"عدد غرف النوم",
+getUnitValue("bedrooms")
+);
+
+addMessageLine(
+unitLines,
+"عدد الصالات",
+getUnitValue("livingRooms")
+);
+
+addMessageLine(
+unitLines,
+"عدد دورات المياه",
+getUnitValue("bathrooms")
+);
+
+addMessageLine(
+unitLines,
+"عدد المطابخ",
+getUnitValue("kitchens")
+);
+
+addMessageLine(
+unitLines,
+"عدد المجالس",
+getUnitValue("majlis")
+);
+
+addMessageLine(
+unitLines,
+"عدد المخازن",
+getUnitValue("storage")
+);
+
+addMessageLine(
+unitLines,
+"عدد مكيات سبلت",
+getUnitValue("splitAC")
+);
+
+addMessageLine(
+unitLines,
+"عدد مكيفات شباك",
+getUnitValue("windowAC")
+);
+
+addMessageLine(
+unitLines,
+"رقم عداد الكهرباء إن وجد",
+getUnitValue("electricity")
+);
+
+addMessageLine(
+unitLines,
+"رقم عداد الماء إن وجد",
+getUnitValue("water")
+);
+
+
+/* لا نضيف الوحدة إذا لم يكن فيها أي بيانات */
+
+if(unitLines.length){
+
+lines.push("");
+lines.push("--------------------");
+lines.push("بيانات الوحدة "+(index+1));
+lines.push(...unitLines);
+
+}
 
 });
 
 
-return message;
+return lines.join("\n");
 
 }
 
@@ -1941,4 +2099,3 @@ updateUnitTypes();
 </body>
 
 </html>
-```
