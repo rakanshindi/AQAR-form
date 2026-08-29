@@ -1092,7 +1092,7 @@ type="button"
 class="save-btn"
 id="saveImageBtn"
 >
-حفظ الصورة
+حفظ الطلبات في صورة
 </button>
 
 </div>
@@ -1100,7 +1100,7 @@ id="saveImageBtn"
 
 <p class="note">
 
-بعد الضغط على حفظ الصورة سيتم تجهيز صورة للطلب وحفظها على جهازك.
+بعد الضغط على حفظ الطلبات في صورة سيتم تجهيز صورة للطلب وحفظها على جهازك.
 
 </p>
 
@@ -1835,7 +1835,7 @@ window.location.href=url;
 
 
 /* ==========================
-   حفظ الطلب كصورة
+   حفظ الطلبات كصورة
 ========================== */
 
 saveImageBtn.addEventListener(
@@ -1887,7 +1887,9 @@ canvas.width=width;
 canvas.height=height;
 
 
-/* الخلفية */
+/* ==========================
+   الخلفية
+========================== */
 
 ctx.fillStyle="#ffffff";
 
@@ -1899,7 +1901,72 @@ height
 );
 
 
-/* إطار */
+/* ==========================
+   العلامة المائية
+   رقم المكتب مكرر في كامل الصورة
+========================== */
+
+ctx.save();
+
+ctx.globalAlpha=0.10;
+
+ctx.fillStyle="#64748b";
+
+ctx.font=
+"bold 30px Arial";
+
+ctx.textAlign="center";
+
+ctx.textBaseline="middle";
+
+const watermark=
+"0536305035";
+
+const watermarkXStep=250;
+
+const watermarkYStep=115;
+
+for(
+let y=-80;
+y<height+150;
+y+=watermarkYStep
+){
+
+for(
+let x=-100;
+x<width+200;
+x+=watermarkXStep
+){
+
+ctx.save();
+
+ctx.translate(
+x,
+y
+);
+
+ctx.rotate(
+-25*Math.PI/180
+);
+
+ctx.fillText(
+watermark,
+0,
+0
+);
+
+ctx.restore();
+
+}
+
+}
+
+ctx.restore();
+
+
+/* ==========================
+   إطار الصفحة
+========================== */
 
 ctx.strokeStyle="#dce8e1";
 
@@ -1913,7 +1980,9 @@ height-40
 );
 
 
-/* العنوان */
+/* ==========================
+   العنوان
+========================== */
 
 ctx.fillStyle="#087443";
 
@@ -1932,7 +2001,9 @@ width/2,
 );
 
 
-/* البيانات */
+/* ==========================
+   البيانات
+========================== */
 
 ctx.textAlign="right";
 
@@ -1982,7 +2053,9 @@ y+=lineHeight;
 }
 
 
-/* تحويل الصورة */
+/* ==========================
+   تحويل الصورة
+========================== */
 
 canvas.toBlob(
 async function(blob){
